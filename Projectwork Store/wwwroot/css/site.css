@@ -1,35 +1,67 @@
 ﻿html {
-  font-size: 14px;
+	font-size: 14px;
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+	html {
+		font-size: 16px;
+	}
 }
 
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+.btn {
+	border: 1px solid #ddd;
+	background-color: #e30000;
+	color: white;
+	padding: 4px 12px;
+	-o-transition: background-color .2s ease-in;
+	-moz-transition: background-color .2s ease-in;
+	-webkit-transition: background-color .2s ease-in;
+	transition: background-color .2s ease-in;
+border-radius: 0;
 }
+
+	.btn:hover {
+		background-color: white;
+		color: black;
+	}
+
+	.btn:active {
+		background-color: black;
+		color:white;
+	}
+
+
+		.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+			box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+		}
 
 html {
-  position: relative;
-  min-height: 100%;
+	position: relative;
+	min-height: 100%;
 }
 
 body {
-    margin-bottom: 60px;
-    background-image: url('/img/bg.webp');
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-    background-position: right;
+	margin-bottom: 60px;
+	background-color: black;
 }
 
+.wallpaper {
+	background-image: url('/img/bg.webp');
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+	background-position: left;
+}
+
+
 .border-red {
-    border-color: #e30000 !important;
+	border-color: #e30000 !important;
 }
 
 .flip {
-    transform: scale(-1);
+	transform: scale(-1);
+}
+
+.darkmask {
+	background-color: rgba(0, 0, 0, 0.75)
 }
