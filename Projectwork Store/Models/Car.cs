@@ -51,5 +51,3 @@ namespace Projectwork_Store.Models
         }
     }
 }
-
-
