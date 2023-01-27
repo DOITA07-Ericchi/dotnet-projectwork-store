@@ -13,6 +13,9 @@ namespace Projectwork_Store.Models
 
         public int CategoryId { get; set; }
 
+        public Category? Category { get; set; }
+
+
         [Column(TypeName = "varchar(512)")]
         [StringLength(512, ErrorMessage = "Il testo non deve superare i 512 caratteri")]
         public string Description { get; set; }
@@ -31,6 +34,9 @@ namespace Projectwork_Store.Models
         public int Quantity { get; set; }
 
         public int StickerId { get; set; }
+
+        public Sticker? Sticker { get; set; }
+
 
         public int N_like { get; set; }
 
