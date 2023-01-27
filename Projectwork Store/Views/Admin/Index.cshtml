@@ -1,0 +1,50 @@
+﻿@model List<Car>
+@{
+
+    void CarCard(Car car)
+    {
+        <div class="col-12 col-md-6 col-lg-4">
+            <div class="card">
+                <img src="@car.UrlImage" class="card-img-top">
+                <div class="card-title">
+                    <h3 class="my-3 text-center">@car.name</h3>
+                    <span class="ms-4">Car Id: @car.Id </span><br>
+                    <span class="ms-4"> Stcker: @car.Sticker</span>
+                </div>
+                <div class="card-body text-center">
+                    <p>@car.Description</p>
+                </div>
+                <div class="card-footer bg-transparent">
+                    <h6 class="ms-2">@if (car.Quantity > 0) 
+                        { 
+                        <span class="text-success"> Quantità Disponibile: @car.Quantity </span> 
+                        }
+                        else
+                        {
+                        <span class="text-danger"> Esaurito </span>
+                        }
+                    </h6><br>
+                    <h5 class="ms-2">€@car.Price</h5>
+                </div>
+            </div>
+        </div>
+    }
+}
+
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-10 col-md-8 text-center my-5">
+            <h1>Ciao Admin!</h1>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-10 col-lg-8">
+            <div class="row g-3 gy-5 justify-content-evenly">
+                @foreach (Car car in Model)
+                {
+                    CarCard(car);
+                }
+            </div>
+        </div>
+    </div>
+</div>
