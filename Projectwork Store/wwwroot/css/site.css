@@ -63,5 +63,6 @@ body {
 }
 
 .darkmask {
-	background-color: rgba(0, 0, 0, 0.75)
+	background-color: rgba(0, 0, 0, 0.75);
+	background-image: url("../img/checker.png");
 }
