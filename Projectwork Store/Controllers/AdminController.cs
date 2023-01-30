@@ -11,7 +11,7 @@ namespace Projectwork_Store.Controllers
         {
             using(StoreContext db = new StoreContext())
             {
-                List<Car> carsList = db.Cars.ToList<Car>();
+                List<Car> carsList = db.Cars.Include(car => car.Category).Include(car => car.Sticker).ToList<Car>();
                 
                 return View("Index", carsList);
             }
@@ -23,7 +23,7 @@ namespace Projectwork_Store.Controllers
             using (StoreContext db = new StoreContext())
             {
                 Car carSelected = db.Cars
-                    .Where(car => car.Id == id)
+                    .Where(singolaCar => singolaCar.Id == id)
                     .Include(car => car.Category)
                     .Include(car => car.Sticker)
                     .FirstOrDefault();
@@ -44,7 +44,7 @@ namespace Projectwork_Store.Controllers
             using (StoreContext db = new StoreContext())
             {
                 Car carSelected = db.Cars
-                   .Where(car => car.Id == id)
+                   .Where(singolaCar => singolaCar.Id == id)
                    .Include(car => car.Category)
                    .Include(car => car.Sticker)
                    .FirstOrDefault();
@@ -62,14 +62,19 @@ namespace Projectwork_Store.Controllers
 
                     return View("Update", viewModel);
                 }
+                else
+                {
+                    return NotFound("L'auto con questo id non è stata trovata");
 
-                return NotFound("L'auto con questo id non è stata trovata");
+                }
+
+               
             }
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Update(CarCategory carModified)
+        public IActionResult Update(int id ,CarCategory carModified)
         {
             if (!ModelState.IsValid)
             {
@@ -88,7 +93,7 @@ namespace Projectwork_Store.Controllers
             using(StoreContext db = new StoreContext())
             {
                 Car carSelected = db.Cars
-                    .Where(car => car.Id == carModified.Car.Id)
+                    .Where(car => car.Id == id)
                     .Include(car => car.Category)
                     .Include(car => car.Sticker)
                     .FirstOrDefault();
@@ -108,8 +113,10 @@ namespace Projectwork_Store.Controllers
 
                     return RedirectToAction("Index");
                 }
-
-                return NotFound("L'auto con questo id non è stata trovata");
+                else
+                { 
+                    return NotFound("L'auto con questo id non è stata trovata");
+                }
             }
         }
 
@@ -161,14 +168,33 @@ namespace Projectwork_Store.Controllers
 
         //conferma per eliminare auto selezionata
         [HttpGet]
-        public IActionResult ConfirmDelete() 
+        public IActionResult ConfirmDelete(int id)
         {
-            return View("ConfirmDelete");
+            using (StoreContext db = new StoreContext())
+            {
+                Car carSelected = db.Cars
+                   .Where(singolaCar => singolaCar.Id == id)
+                   .Include(car => car.Category)
+                   .Include(car => car.Sticker)
+                   .FirstOrDefault();
+
+
+                if (carSelected != null)
+                {
+                    return View(carSelected);
+                }
+                else
+                {
+                    return NotFound("L'auto con questo id non è stata trovata");
+
+                }
+            }
         }
+
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult ConfirmDelete(int id)
+        public IActionResult Delete(int id)
         {
             using (StoreContext db = new StoreContext())
             {
@@ -183,8 +209,11 @@ namespace Projectwork_Store.Controllers
 
                     return RedirectToAction("Index");
                 }
+                else
+                {
+                    return NotFound("L'auto con questo id non è stata trovata");
+                }
 
-                return NotFound("L'auto con questo id non è stata trovata");
             }
         }
 
