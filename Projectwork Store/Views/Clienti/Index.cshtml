@@ -20,3 +20,71 @@
         <!-- qui verranno mostrati gli elementi -->
     </div>
 </div>
+
+@section Scripts {
+    <script type="text/javascript">
+        
+        loadCars();
+
+        document.getElementById('input_search').addEventListener('keyup', searchCars);
+
+        function searchCars()
+        {
+            let stringForSearch = document.getElementById('input_search').value;
+
+            loadCars(stringForSearch);
+
+        }
+
+        function loadCars(searchString)
+        {
+            axios.get('/api/cars',
+                param: {
+                    search: searchString
+                }
+            ).then((res)=>{
+
+                console.log('risultato ok');
+                console.log(res);
+
+                if (res.data.length > 0 ){
+
+
+
+
+
+                }
+
+
+
+
+            });
+
+
+
+
+
+        }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    </script>
+
+
+
+
+
+
+}
