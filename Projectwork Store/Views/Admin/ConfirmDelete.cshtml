@@ -1,19 +1,20 @@
 ﻿
-@{
-}
 
+
+@model Car
 
 <div class="row justify-content-center d-flex">
     <div class="col-10 col-md-8 text-center text-light my-5">
-        <h1>Vuoi davvero eliminare l'auto "Model.name"?</h1>
+        <h1>Vuoi davvero eliminare l'auto? </h1>
     </div>
 </div>
 
-<form>
+<form asp-controller="Admin" asp-action="Delete" asp-route-id="@Model.Id" method="post" >
+    @Html.AntiForgeryToken()
     <div class="row justify-content-center d-flex">
         <div class="col-10 col-md-8 text-center text-light my-5">
-            <button type="submit" class="btn" href="@Url.Action("Create", "Admin")">Conferma</button>
-            <button type="submit" class="btn" href="@Url.Action("Index", "Admin")">Annulla</button>
+            <button type="submit" class="btn" >Conferma</button>
+            <a class="btn" href="@Url.Action("Index", "Admin")">Annulla</a>
         </div>
     </div>
 </form>
