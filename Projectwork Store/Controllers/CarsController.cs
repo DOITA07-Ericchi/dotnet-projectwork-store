@@ -53,7 +53,7 @@ namespace Projectwork_Store.Controllers
                 return Ok(cars);
             }
         }
-        public IActionResult Dettaglio(int id)
+        public IActionResult Details(int id)
         {
 
 

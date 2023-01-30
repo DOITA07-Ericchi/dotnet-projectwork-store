@@ -9,7 +9,7 @@ namespace Projectwork_Store.Controllers
             return View();
         }
 
-        public IActionResult Dettaglio()
+        public IActionResult Details()
         {
 
             return View();
