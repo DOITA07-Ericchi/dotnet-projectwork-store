@@ -1,38 +1,39 @@
 ﻿
 @{
 }
-<form class="text-light">
+<div class="container darkmask border border-2 border-red"
+<form class="text-light p-3">
 <!--Html.AntiForgeryToken()-->
     <div class="row g-3 mt-1 align-items-center">
         <div class="col">
             <label>Nome:</label>
-            <input type="text" class="form-control bg-black text-light darkmask border border-2 border-red" />
+            <input type="text" class="form-control bg-black text-light border border-2 border-red" />
             <span class="text-danger"></span>
         </div>
         <div class="col">
             <label>Colore:</label>
-            <input type="text" class="form-control bg-black text-light darkmask border border-2 border-red" />
+            <input type="text" class="form-control bg-black text-light border border-2 border-red" />
             <span class="text-danger"></span>
         </div>
     </div>
     <div class="row g-3 mt-1 align-items-center">
         <div class="col">
             <label>Descrizione:</label>
-            <textarea rows="10" class="form-control bg-black text-light darkmask border border-2 border-red"></textarea>
+            <textarea rows="10" class="form-control bg-black text-light border border-2 border-red"></textarea>
             <span  class="text-danger"></span>
         </div>
     </div>
     <div class="row g-3 mt-1 align-items-center">
         <div class="col">
             <label>Url Immagine:</label>
-            <input type="text" class="form-control bg-black text-light darkmask border border-2 border-red" />
+            <input type="text" class="form-control bg-black text-light border border-2 border-red" />
             <span  class="text-danger"></span>
         </div>
     </div>
     <div class="row g-3 mt-1 align-items-center">
         <div class="col">
             <label>Sticker:</label>
-            <select rows="5" class="form-select bg-black text-light darkmask border border-2 border-red w-100">
+            <select rows="5" class="form-select bg-black text-light border border-2 border-red w-100">
                 <option value=""></option>
                 <option value="sticker.Id">sticker.Name</option>
             </select>
@@ -56,3 +57,4 @@
     </div>
     <button type="submit" class="mt-4 btn btn-primary">Salva</button>
 </form>
+</div>
