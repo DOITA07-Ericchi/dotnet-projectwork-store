@@ -16,8 +16,12 @@
             <h3>Auto non trovata !</h3>
         </div>
     </div>
-    <div id="contenitore_auto" class="row d-none">
-        <!-- qui verranno mostrati gli elementi -->
+    <div class="row justify-content-center mt-5">
+        <div class="col-12 col-md-10 col-lg-12">
+            <div id="contenitore_auto" class="row g-3 gy-5 justify-content-evenly">
+                <!-- qui verranno mostrati gli elementi -->
+            </div>
+        </div>
     </div>
 </div>
 
@@ -48,6 +52,87 @@
                 console.log(res);
 
                 if (res.data.length > 0 ){
+
+                         document.getElementById('contenitore_auto').classList.remove('d-none')
+                        document.getElementById('contenitore_no_auto').classList.add('d-none');
+
+                        document.getElementById('contenitore_auto').innerHTML = '';
+
+                        res.data.forEach(car => {
+
+                            console.log('auto', car);
+
+                            document.getElementById('contenitore_auto').innerHTML +=
+                              if(car.Quantity == 0 ) {
+                                `
+                                <div class="col-12 col-md-6 col-lg-4">
+                                    <div class="card text-light darkmask border border-2 border-red">
+                                       <img src="${car.Url_image}" class="card-img-top" alt="${car.name}">
+                                        <div class="card-title">
+                                           <h3 class="my-3 text-center">${car.name}</h3>
+                                            <hr>
+                                            <span class="ms-4"> Sticker:${car.sticker.name}</span>
+                                        </div>
+                                        <div class="card-body text-center">
+                                            <p>
+                                                ${car.description}
+                                            </p>
+                                        </div>
+                                        <div class="card-footer bg-transparent">
+                                            <h6 class="ms-2">
+                                                <span class="text-danger">Esautrito</span>
+                                            </h6>
+                                            <h5 class="ms-2">Prezzo: ${car.price} €</h5>
+                                            <div style="text-align: center;">
+                                                <a class="btn" href="@Url.Action("Details", "Clienti")">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                                     stroke-linejoin="round" class="feather feather-activity">
+                                                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                                        <circle cx="12" cy="12" r="3"></circle>
+                                                    </svg>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                    `}else{
+                                            `
+                                    <div class="col-12 col-md-6 col-lg-4">
+                                        <div class="card text-light darkmask border border-2 border-red">
+                                           <img src="${car.Url_image}" class="card-img-top" alt="${car.name}">
+                                            <div class="card-title">
+                                               <h3 class="my-3 text-center">${car.name}</h3>
+                                                <hr>
+                                                <span class="ms-4"> Sticker:${car.sticker.name}</span>
+                                            </div>
+                                            <div class="card-body text-center">
+                                                <p>
+                                                    ${car.description}
+                                                </p>
+                                            </div>
+                                            <div class="card-footer bg-transparent">
+                                                <h6 class="ms-2">
+                                                   <span class="text-success">Disponibile</span>
+                                                </h6>
+                                                <h5 class="ms-2">Prezzo: ${car.price} €</h5>
+                                                <div style="text-align: center;">
+                                                    <a class="btn" href="@Url.Action("Details", "Clienti")">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                                         stroke-linejoin="round" class="feather feather-activity">
+                                                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                                            <circle cx="12" cy="12" r="3"></circle>
+                                                        </svg>
+                                                    </a>
+                                                    <a class="btn" href="#">Compra</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                        `
+
+                                    };
 
             });
 
