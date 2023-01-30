@@ -8,5 +8,12 @@ namespace Projectwork_Store.Controllers
         {
             return View();
         }
+
+        public IActionResult Dettaglio()
+        {
+
+            return View();
+
+        }
     }
 }

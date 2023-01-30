@@ -66,7 +66,7 @@ namespace Projectwork_Store.Controllers
                     return Ok(cars);
                 }
 
-                return NotFound("La pizza con l'id cercato non esiste!");
+                return NotFound("L'auto non è stata trovata!");
 
             }
 
