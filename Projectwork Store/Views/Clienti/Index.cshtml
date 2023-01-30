@@ -1,5 +1,22 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <div class="d-flex">
+                <div>
+                    <input id="input_search" type="text" class="form-control bg-black text-light darkmask border border-2 border-red" placeholder="Cerca per titolo..." />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="spinner-loader" class="d-flex justify-content-center">
+        <img class="spinner-border" style="width: 2rem; height: 2rem;" role="status"/>
+    </div>
+    <div id="contenitore_no_auto" class="row text-center d-none">
+        <div class="col-12">
+            <h3>Auto non trovata !</h3>
+        </div>
+    </div>
+    <div id="contenitore_auto" class="row d-none">
+        <!-- qui verranno mostrati gli elementi -->
+    </div>
+</div>
