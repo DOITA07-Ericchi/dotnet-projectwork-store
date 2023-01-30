@@ -19,7 +19,7 @@ namespace Projectwork_Store.Controllers
 
                 if (search is null || search == "")
                 {
-                    cars = db.Cars.Include(car => car.Category).Include(pizza => pizza.Sticker).ToList<Car>();
+                    cars = db.Cars.Include(car => car.Category).Include(car => car.Sticker).ToList<Car>();
                 }
                 else
                 {
@@ -27,7 +27,7 @@ namespace Projectwork_Store.Controllers
 
                     cars = db.Cars.Where(car => car.Name.ToLower().Contains(search))
                         .Include(car => car.Category)
-                        .Include(pizza => pizza.Sticker).ToList<Car>();
+                        .Include(car => car.Sticker).ToList<Car>();
                 }
 
                 return Ok(cars);
@@ -43,7 +43,7 @@ namespace Projectwork_Store.Controllers
 
             using (StoreContext db = new StoreContext())
             {
-                Car cars = db.Cars.Where(pizza => pizza.Id == id).Include(car => car.Category).Include(pizza => pizza.Sticker).FirstOrDefault();
+                Car cars = db.Cars.Where(car => car.Id == id).Include(car => car.Category).Include(car => car.Sticker).FirstOrDefault();
 
                 if (cars is null)
                 {
@@ -60,7 +60,7 @@ namespace Projectwork_Store.Controllers
             using (StoreContext db = new StoreContext())
 
             {
-                Car cars = db.Cars.Where(pizza => pizza.Id == id).Include(car => car.Category).Include(pizza => pizza.Sticker).FirstOrDefault();
+                Car cars = db.Cars.Where(car => car.Id == id).Include(car => car.Category).Include(car => car.Sticker).FirstOrDefault();
                 if (cars != null)
                 {
                     return Ok(cars);
