@@ -45,6 +45,8 @@ namespace Projectwork_Store.Controllers
             {
                 Car carSelected = db.Cars
                    .Where(car => car.Id == id)
+                   .Include(car => car.Category)
+                   .Include(car => car.Sticker)
                    .FirstOrDefault();
 
 
@@ -87,6 +89,8 @@ namespace Projectwork_Store.Controllers
             {
                 Car carSelected = db.Cars
                     .Where(car => car.Id == carModified.Car.Id)
+                    .Include(car => car.Category)
+                    .Include(car => car.Sticker)
                     .FirstOrDefault();
 
                 if(carSelected != null)
@@ -97,7 +101,6 @@ namespace Projectwork_Store.Controllers
                     carSelected.Price = carModified.Car.Price;
                     carSelected.Url_image = carModified.Car.Url_image;
                     carSelected.Quantity = carModified.Car.Quantity;
-                    carSelected.N_like = carModified.Car.N_like;
                     carSelected.CategoryId = carModified.Car.CategoryId;
                     carSelected.StickerId = carModified.Car.StickerId;
 
@@ -157,7 +160,14 @@ namespace Projectwork_Store.Controllers
         }
 
         //conferma per eliminare auto selezionata
+        [HttpGet]
+        public IActionResult ConfirmDelete() 
+        {
+            return View("ConfirmDelete");
+        }
+
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult ConfirmDelete(int id)
         {
             using (StoreContext db = new StoreContext())
@@ -181,7 +191,12 @@ namespace Projectwork_Store.Controllers
 
         public IActionResult Storage()
         {
-            return View();
+            using (StoreContext db = new StoreContext())
+            {
+                List<Car> carsList = db.Cars.ToList<Car>();
+
+                return View("Storage", carsList);
+            }
         }
     }
 }
