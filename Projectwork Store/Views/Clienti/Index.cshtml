@@ -50,7 +50,8 @@
                 }
                     
             ).then((res)=>{
-                        debugger;
+
+
                 console.log('risultato ok');
                 console.log(res);
                     
@@ -93,13 +94,22 @@
                                         </div>
                                     </div>
                                     `;
+                                        });
 
-            });
+
+                    } else {
+                        document.getElementById('contenitore_no_auto').classList.remove('d-none');
+                        document.getElementById('contenitore_auto').classList.add('d-none');
 
 
-        }
-    
-    
+
+                    }
+                    document.getElementById('spinner-loader').classList.add('d-none');
+                }).catch((error) => {
+                    console.log(error);
+                });
+
+            }
     
     </script>
 }
