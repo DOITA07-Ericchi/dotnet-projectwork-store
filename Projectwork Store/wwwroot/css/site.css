@@ -41,7 +41,6 @@ html {
 }
 
 body {
-	margin-bottom: 60px;
 	background-color: black;
 }
 
@@ -65,4 +64,18 @@ body {
 .darkmask {
 	background-color: rgba(0, 0, 0, 0.75);
 	background-image: url("../img/checker.png");
+}
+
+img.mascot {
+	max-height: 30em;
+	max-width: 30em;
+	bottom: 0;
+}
+
+#bottompic {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	padding-bottom: 0;
+	line-height: 0;
 }

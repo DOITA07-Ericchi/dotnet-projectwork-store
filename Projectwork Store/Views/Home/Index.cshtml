@@ -1,15 +1,20 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+	ViewData["Title"] = "Home Page";
+	Layout = "~/Views/Shared/_IntroLayout.cshtml";
 }
 
-<div class="text-center text-light darkmask mt-5 mb-5 p-5 border border-2 border-red">
-    <h1 class="display-4"><img class="img-fluid" src="~/img/logo.webp" alt="Logo"></h1>
-    <h3 class="mt-5">Itasha Store è un'azienda leader nel settore dei trasporti weaboo in Italia.</h3>
-    <p>Dal 2023 ci impegnamo ad offrire il meglio per l'otaku che vuole sentire il contatto emotivo con la propria autovettura,<br />garantendo waifu calde come i motori delle nostre auto.</p>
-    <div class="mt-5">
-        <a class="btn m-1" href="#" role="button">Accesso clienti</a>
-        <a class="btn m-1" href="#" role="button">Accesso admin</a>
-
-    </div>
+<div class="darkmask text-center text-light">
+	<div class="container px-4 px-lg-5 h-100">
+		<div class="row align-items-center justify-content-center gx-4 gx-lg-5 min-vh-100">
+			<div class="col-sm-10 my-auto">
+				<h1 class="display-4"><img class="img-fluid" src="~/img/logo.webp" alt="Logo"></h1>
+				<h3 class="mt-5">Itasha Store è un'azienda leader nel settore dei trasporti weaboo in Italia.</h3>
+				<p>Dal 2023 ci impegnamo ad offrire il meglio per l'otaku che vuole sentire il contatto emotivo con la propria autovettura,<br />garantendo waifu calde come i motori delle nostre auto.</p>
+				<div class="mt-5">
+					<a class="btn m-1" href="#" role="button">Accesso clienti</a>
+					<a class="btn m-1" asp-controller="Admin" asp-action="Index" role="button">Accesso admin</a>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
-
