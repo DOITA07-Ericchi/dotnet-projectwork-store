@@ -26,90 +26,83 @@
 </div>
 
 @section Scripts {
+
     <script type="text/javascript">
-        
-        loadCars();
+
+        loadAuto();
 
         document.getElementById('input_search').addEventListener('keyup', searchCars);
+        function searchCars() {
+            let stringaDiRicerca = document.getElementById('input_search').value;
 
-        function searchCars()
-            {   
-            let stringForSearch = document.getElementById('input_search').value;
-
-            loadCars(stringForSearch);
+            loadAuto(stringaDiRicerca);
 
         }
-        
-            
 
-        function loadCars(searchString)
-        {
-            axios.get('/api/cars',
-                param: {
+        function loadAuto(searchString) {
+
+            axios.get('/api/cars', {
+                params: {
                     search: searchString
                 }
-                    
-            ).then((res)=>{
-
+            }).then((res) => {
 
                 console.log('risultato ok');
                 console.log(res);
-                    
-                if (res.data.length > 0 ){
 
-                         document.getElementById('contenitore_auto').classList.remove('d-none')
-                        document.getElementById('contenitore_no_auto').classList.add('d-none');
+                if (res.data.length > 0) {
+                    document.getElementById('contenitore_auto').classList.remove('d-none')
+                    document.getElementById('contenitore_no_auto').classList.add('d-none');
 
-                        document.getElementById('contenitore_auto').innerHTML = '';
+                    document.getElementById('contenitore_auto').innerHTML = '';
 
-                        res.data.forEach(car => {
+                    res.data.forEach(car => {
 
-                            console.log('car', car);
+                        console.log('car', car);
 
-                            document.getElementById('contenitore_auto').innerHTML +=
-                                `
-                                    <div class="col-12 col-md-6 col-lg-4">
-                                        <div class="card text-light darkmask border border-2 border-red">
-                                            <img src="${car.url_image}" class="card-img-top" alt="${car.name}">
-                                            <div class="card-title">
-                                               <h3 class="my-3 text-center">${car.name}</h3>
-                                                <hr>
-                                                <span class="ms-4"> Sticker:${car.sticker.name}</span>
-                                            </div>
-                                            <div class="card-body text-center">
-                                                <p>
-                                                    ${car.description}
-                                                </p>
-                                            </div>
-                                            <div class="card-footer bg-transparent">
-                                                <h6 class="ms-2">
-                                                    <span class="text-success">Disponibile</span>
-                                                </h6>
-                                                <h5 class="ms-2">Prezzo: ${car.price} €</h5>
-                                                <div style="text-align: center;">
-                                                    <a class="btn" href="#">Dettagli</a>
-                                                    <a class="btn" href="#">Compra</a>
+                        document.getElementById('contenitore_auto').innerHTML +=
+                            `
+                                            <div class="col-12 col-md-6 col-lg-4">
+                                                <div class="card text-light darkmask border border-2 border-red">
+                                                    <img src="${car.url_image}" class="card-img-top" alt="${car.name}">
+                                                    <div class="card-title">
+                                                        <h3 class="my-3 text-center">${car.name}</h3>
+                                                        <hr>
+                                                        <span class="ms-4"> Sticker:${car.sticker.name}</span>
+                                                    </div>
+                                                    <div class="card-body text-center">
+                                                        <p>
+                                                            ${car.description}
+                                                        </p>
+                                                    </div>
+                                                    <div class="card-footer bg-transparent">
+                                                        <h6 class="ms-2">
+                                                            <span class="text-success"> Disponibile : ${car.quantity} </span>
+                                                        </h6>
+                                                        <h5 class="ms-2">Prezzo: ${car.price} € </h5>
+                                                        <div style="text-align: center;">
+                                                             <a class="btn" href="/Clienti/Details/${car.id}">Dettagli</a>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </div>
                                     `;
-                                        });
+                    });
 
 
-                    } else {
-                        document.getElementById('contenitore_no_auto').classList.remove('d-none');
-                        document.getElementById('contenitore_auto').classList.add('d-none');
+                } else {
+                    document.getElementById('contenitore_no_auto').classList.remove('d-none');
+                    document.getElementById('contenitore_auto').classList.add('d-none');
 
 
+                }
+                document.getElementById('spinner-loader').classList.add('d-none');
+            }).catch((error) => {
+                console.log(error);
+            });
 
-                    }
-                    document.getElementById('spinner-loader').classList.add('d-none');
-                }).catch((error) => {
-                    console.log(error);
-                });
+        }
 
-            }
-    
     </script>
+
 }
