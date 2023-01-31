@@ -37,6 +37,9 @@ namespace Projectwork_Store.Models
 
         public Sticker? Sticker { get; set; }
 
+        public int UserPurchaseId { get; set; }
+        public UserPurchase? UserPurchase { get; set; }
+
 
         public int N_like { get; set; }
 

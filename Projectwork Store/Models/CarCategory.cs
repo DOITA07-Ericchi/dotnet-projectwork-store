@@ -9,6 +9,8 @@
         public List<Category>? Categories { get; set; }
 
         //lista stickers per la select
-        public List<Sticker>?  Stickers { get; set; }
+        public List<Sticker>? Stickers { get; set; }
+
+        public List<UserPurchase>? UserPurchases { get; set; }
     }
 }
