@@ -40,6 +40,9 @@ namespace Projectwork_Store.Models
         public int UserPurchaseId { get; set; }
         public UserPurchase? UserPurchase { get; set; }
 
+        public int SupplierPurchaseId { get; set; }
+        public SupplierPurchase? SupplierPurchase { get; set; }
+
 
         public int N_like { get; set; }
 
