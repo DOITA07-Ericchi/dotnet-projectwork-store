@@ -21,9 +21,7 @@ namespace Projectwork_Store.Models
         [Column(TypeName = "varchar(50)")]
         [StringLength(50, ErrorMessage = "La mail fornita non deve superare i 50 caratteri")]
         public string Email { get; set; }
-        [Column(TypeName = "varchar(20)")]
-        [StringLength(20, ErrorMessage = "Il numero fornito non deve superare i 20 caratteri")]
-        public string Phone { get; set; }
+        
 
         //rel 1-n car
         [JsonIgnore]
