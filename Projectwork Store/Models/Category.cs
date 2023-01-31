@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace Projectwork_Store.Models
 {
@@ -13,6 +14,7 @@ namespace Projectwork_Store.Models
         public string Name { get; set; }
 
         //rel. 1-n car
+        [JsonIgnore]
         public List<Car> Cars { get; set; }
 
         public Category()
