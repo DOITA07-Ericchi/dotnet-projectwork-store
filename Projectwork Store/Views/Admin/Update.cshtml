@@ -1,45 +1,48 @@
 ﻿
 
-@model CarCategory
+@{
+}
 
-<form asp-controller="Admin" asp-action="Update" method="post" class="text-light">
+@model CarCategory
+<div class="container darkmask border border-2 border-red">
+<form asp-controller="Admin" asp-action="Update" method="post" class="text-light p-3">
     @Html.AntiForgeryToken()
     <div class="row g-3 mt-1 align-items-center">
         <div class="col">
             <label>Id dell'auto:</label>
-            <input asp-for="Car.Id" type="text" class="form-control bg-black text-light darkmask border border-2 border-red" disabled />
+            <input asp-for="Car.Id" type="text" class="form-control bg-black text-light border border-2 border-red" disabled />
         </div>
     </div>
     <div class="row g-3 mt-1 align-items-center">
         <div class="col">
             <label>Nome:</label>
-            <input type="text" class="form-control bg-black text-light darkmask border border-2 border-red" asp-for="Car.Name" />
+            <input type="text" class="form-control bg-black text-light border border-2 border-red" asp-for="Car.Name" />
             <span asp-validation-for="Car.Name" class="text-danger"></span>
         </div>
         <div class="col">
             <label>Colore:</label>
-            <input type="text" class="form-control bg-black text-light darkmask border border-2 border-red" asp-for="Car.Color" />
+            <input type="text" class="form-control bg-black text-light border border-2 border-red" asp-for="Car.Color" />
             <span asp-validation-for="Car.Color" class="text-danger"></span>
         </div>
     </div>
     <div class="row g-3 mt-1 align-items-center">
         <div class="col">
             <label>Descrizione:</label>
-            <textarea rows="10" class="form-control bg-black text-light darkmask border border-2 border-red" asp-for="Car.Description"></textarea>
+            <textarea rows="10" class="form-control bg-black text-light border border-2 border-red" asp-for="Car.Description"></textarea>
             <span asp-validation-for="Car.Description" class="text-danger"></span>
         </div>
     </div>
     <div class="row g-3 mt-1 align-items-center">
         <div class="col">
             <label>Url Immagine:</label>
-            <input type="text" class="form-control bg-black text-light darkmask border border-2 border-red" asp-for="Car.Url_image" />
+            <input type="text" class="form-control bg-black text-light border border-2 border-red" asp-for="Car.Url_image" />
             <span asp-validation-for="Car.Url_image" class="text-danger"></span>
         </div>
     </div>
     <div class="row g-3 mt-1 align-items-center">
         <div class="col">
             <label>Sticker:</label>
-            <select rows="5" class="form-select bg-black text-light darkmask border border-2 border-red w-100" asp-for="Car.StickerId">
+            <select rows="5" class="form-select bg-black text-light border border-2 border-red w-100" asp-for="Car.StickerId">
                 <option value=""></option>
                 @foreach (Sticker sticker in Model.Stickers)
                 {
@@ -57,12 +60,12 @@
     <div class="row g-3 mt-1 align-items-center">
         <div class="col">
             <label>Prezzo in €:</label>
-            <input type="number" min="5000" class="form-control bg-black text-light darkmask border border-2 border-red" asp-for="Car.Price" />
+            <input type="number" min="5000" class="form-control bg-black text-light border border-2 border-red" asp-for="Car.Price" />
             <span asp-validation-for="Car.Price" class="text-danger"></span>
         </div>
         <div class="col">
             <label>Categoria:</label>
-            <select rows="5" class="form-select bg-black text-light darkmask border border-2 border-red w-100" asp-for="Car.CategoryId">
+            <select rows="5" class="form-select bg-black text-light border border-2 border-red w-100" asp-for="Car.CategoryId">
                 <option value=""></option>
                 @foreach (Category category in Model.Categories)
                 {
@@ -74,3 +77,4 @@
     </div>
     <button type="submit" class="mt-4 btn btn-primary">Salva</button>
 </form>
+</div>
