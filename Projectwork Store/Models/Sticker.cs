@@ -17,6 +17,11 @@ namespace Projectwork_Store.Models
         [StringLength(100, ErrorMessage = "Il campo dell'opera non può contenere più di 100 caratteri")]
         public string Opera { get; set; }
 
+        [Column(TypeName = "varchar(512)")]
+        [StringLength(512, ErrorMessage = "Il link fornito non deve superare i 512 caratteri")]
+        [Url]
+        public string? Url_image { get; set; }
+
         //rel 1-n car
         [JsonIgnore]
         public List<Car> Cars { get; set; }
