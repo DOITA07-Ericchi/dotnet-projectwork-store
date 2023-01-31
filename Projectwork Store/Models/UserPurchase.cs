@@ -9,7 +9,7 @@ namespace Projectwork_Store.Models
     {
         [Key]
         public int Id { get; set; }
-        public DateTime PurchaseData { get; set; }
+        public DateTime PurchaseDate { get; set; }
         public int Quantity { get; set; }
 
         [Column(TypeName = "varchar(50)")]
@@ -21,11 +21,11 @@ namespace Projectwork_Store.Models
         [Column(TypeName = "varchar(50)")]
         [StringLength(50, ErrorMessage = "La mail fornita non deve superare i 50 caratteri")]
         public string Email { get; set; }
-        
 
-        //rel 1-n car
-        [JsonIgnore]
-        public List<Car> Cars { get; set; }
+
+        public int CarId { get; set; }
+        public Car? Car { get; set; }
+
 
         public UserPurchase()
         {
