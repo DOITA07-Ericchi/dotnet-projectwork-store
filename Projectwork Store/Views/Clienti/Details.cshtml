@@ -1,12 +1,15 @@
 ﻿
-<div id="auto_container" class="row g-3 mt-1 align-items-center text-light darkmask mt-5 mb-5 p-5 border border-2 border-red">
+<div id="auto_container" class="card darkmask border border-2 border-red">
+
+</div>
+
     
 </div>
-<div class="row">
-    <div class="col-12 col-md-10 col-lg-8">
+<div class="container">
+    <div class="col-12 col-md-10 col-lg-8 mb-3">
         <div class="row g-3 gy-5 justify-content-evenly">
             <div class="col-12 col-md-10 col-lg-12 me">
-                <a class="btn" href="@Url.Action("Index", "Admin")">Torna alle auto</a>
+                <a class="btn" href="@Url.Action("Index", "Clienti")">Torna alle auto</a>
             </div>
         </div>
     </div>
@@ -26,31 +29,22 @@
 
             document.getElementById('auto_container').innerHTML +=
                 `
-                               <div class="text-center">
-                                    <h1 class="mt-3 mb-3">i${car.name}</h1>
-                                    <img class="w-75" src="${car.url_image}" alt="${car.name}" />
-                                </div>
-                                <hr />
-                                <p>
-                                    <strong>Descrezione: </strong>
-                                    ${car.description}
-                                </p>
-                                <p>
-                                    <strong>Categoria:</strong>
-                                    ${car.category.name}
-                                </p>
-                                <p>
-                                    <strong>Colore:</strong>
-                                    ${car.color}
-                                </p>
-                                <p>
-                                    <strong>Sticker:</strong>
-                                    ${car.sticker.name}
-                                </p>
-                                <p>
-                                    <strong>Prezzo:</strong>
-                                    ${car.price}<span>€</span>
-                                </p>
+                            <div class="row no-gutters">
+                <div class="col-sm-7">
+                    <img class="card-img" src="/img/itasha/${car.url_image}" alt="${car.name}">
+                </div>
+                <div class="col-sm-5">
+                    <div class="card-body">
+                        <h5 class="card-title text-light">${car.name}</h5>
+                        <p class="card-text text-light">${car.sticker.name}</p>
+                        <img class="card-img" src="/img/logos/${car.sticker.url_image}" alt="${car.sticker.opera}" />
+                        <p class="card-text text-light">${car.description}</p>
+                        <p class="card-text text-light"><strong>Colore:</strong> ${car.color}</p>
+                        <p class="card-text text-light"><strong>Prezzo:</strong> ${car.price}</p>
+                        <a href="#" class="btn">Acquista</a>
+                    </div>
+                </div>
+            </div>
                                 `;
 
         });
