@@ -1,5 +1,73 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@model List<Car>
+
+@if (Model.Count > 0)
+{
+    <div class="row justify-content-center d-flex">
+        <div class="col-10 col-md-8 text-center text-light my-5">
+            <h1>Storage</h1>
+        </div>
+    </div>
+    
+    <div class="row justify-content-center mt-5">
+        <div class="col-12 col-md-10 col-lg-12">
+            <div class="row g-3 gy-5 justify-content-evenly">
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                <table class="table">
+                            <th scope="col" class="text-light">ID</th>
+                            <th scope="col" class="text-light">Nome</th>
+                            <th scope="col" class="text-light">Categoria</th>
+                            <th scope="col" class="text-light">Sticker</th>
+                            <th scope="col" class="text-light">Quantità</th>
+                        </tr>
+                    </thead>
+                    
+                    <tbody>
+                        @foreach (Car car in Model)
+                        {
+                            <tr>
+                                <td class="text-light">@car.Id</td>
+                                <td class="text-light" style="width: 20%">@car.Name</td>
+                                <td class="text-light">@car.Category.Name</td>
+                                <td class="text-light">@car.Sticker.Name</td>
+
+                                @if (@car.Quantity == 0)
+                                {
+                                    <td class="text-danger">@car.Quantity</td>
+                                }
+                                else if (@car.Quantity < 6)
+                                {
+                                    <td class="text-warning-emphasis">@car.Quantity</td>
+                                }
+                                else
+                                {
+                                    <td class="text-light">@car.Quantity</td>
+                                }                               
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+               
+            </div>
+        </div>
+    </div>
+
+    <div class="row justify-content-center d-flex">
+        <div class="col-10 col-md-8 text-center text-light my-5">
+            <a class="btn" href="@Url.Action("Index", "Admin")">Torna alla pagina Admin</a>
+        </div>
+    </div>
+}
+else
+{
+    <h1>Al momento non ci sono auto da visualizzare </h1>
+
+    <div class="row justify-content-center d-flex">
+        <div class="col-10 col-md-8 text-center text-light my-5">
+            <a class="btn" href="@Url.Action("Index", "Admin")">Torna alla pagina Admin</a>
+        </div>
+    </div>
 }

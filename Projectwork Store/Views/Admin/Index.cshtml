@@ -29,7 +29,7 @@
                             <img src="@car.Url_image"
                          class="card-img-top">
                             <div class="card-title">
-                                <h3 class="my-3 text-center">Auto</h3>
+                                <h3 class="my-3 text-center">@car.Name</h3>
                                 <hr>
                                 <span class="ms-4">Car Id: @car.Id </span><br>
                                 <span class="ms-4"> Sticker: @car.Sticker.Name</span>
@@ -85,6 +85,16 @@
 else
 {
     <h1>al momento non ci sono auto da visualizzare </h1>
+    
+    <div class="row">
+        <div class="col-12 col-md-10 col-lg-8">
+            <div class="row g-3 gy-5 justify-content-evenly">
+                <div class="col-12 col-md-10 col-lg-12 me">
+                    <a class="btn" href="@Url.Action("Create", "Admin")">Aggiungi auto</a>
+                </div>
+            </div>
+        </div>
+    </div>
 }
 
 
