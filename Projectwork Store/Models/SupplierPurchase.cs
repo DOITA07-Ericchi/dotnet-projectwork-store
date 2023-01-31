@@ -19,10 +19,9 @@ namespace Projectwork_Store.Models
         
         public int Price { get; set; }
 
+        public int CarId { get; set; }
+        public Car? Car { get; set; }
 
-        //rel 1-n car
-        [JsonIgnore]
-        public List<Car> Cars { get; set; }
 
         public SupplierPurchase()
         {

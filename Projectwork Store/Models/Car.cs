@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace Projectwork_Store.Models
 {
@@ -37,14 +38,17 @@ namespace Projectwork_Store.Models
 
         public Sticker? Sticker { get; set; }
 
-        public int UserPurchaseId { get; set; }
-        public UserPurchase? UserPurchase { get; set; }
-
-        public int SupplierPurchaseId { get; set; }
-        public SupplierPurchase? SupplierPurchase { get; set; }
-
 
         public int N_like { get; set; }
+
+
+        //rel 1-n UserPurchase
+        [JsonIgnore]
+        public List<UserPurchase> UserPurchases { get; set; }
+
+        //rel 1-n SupplierPurchase
+        [JsonIgnore]
+        public List<SupplierPurchase> SupplierPurchases { get; set; }
 
 
         public Car()
