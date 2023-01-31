@@ -8,6 +8,7 @@
             <h1>Ciao Admin!</h1>
         </div>
     </div>
+    
     <div class="row">
         <div class="col-12 col-md-10 col-lg-8">
             <div class="row g-3 gy-5 justify-content-evenly">
@@ -17,6 +18,16 @@
             </div>
         </div>
     </div>
+
+    <div class="row">
+        <div class="col-12 col-md-10 col-lg-8">
+            <div class="row g-3 gy-5 justify-content-evenly float-end">
+                <a class="btn" href="@Url.Action("Storage", "Admin")">Vai al magazzino</a>
+            </div>
+        </div>
+    </div>
+ 
+
     <div class="row justify-content-center mt-5">
         <div class="col-12 col-md-10 col-lg-12">
             <div class="row g-3 gy-5 justify-content-evenly">
@@ -41,7 +52,18 @@
                             </div>
                             <div class="card-footer bg-transparent">
                                 <h6 class="ms-2">
-                                    <span class="text-success"> Quantità Disponibile: @car.Quantity </span>
+                                    @if (@car.Quantity == 0)
+                                    {
+                                        <span class="text-danger"> Quantità Disponibile: @car.Quantity </span>
+                                    }
+                                    else if (@car.Quantity < 6)
+                                    {
+                                        <span class="text-warning"> Quantità Disponibile: @car.Quantity </span>
+                                    }
+                                    else
+                                    {
+                                        <span class="text-success"> Quantità Disponibile: @car.Quantity </span>
+                                    }
                                 </h6>
                                 <h5 class="ms-2">Prezzo: @car.Price €</h5>
                                 <div style="text-align: center;">
