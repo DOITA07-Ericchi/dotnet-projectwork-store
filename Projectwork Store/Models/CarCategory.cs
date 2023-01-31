@@ -12,5 +12,7 @@
         public List<Sticker>? Stickers { get; set; }
 
         public List<UserPurchase>? UserPurchases { get; set; }
+
+        public List<SupplierPurchase>? SupplierPurchases { get; set; }
     }
 }

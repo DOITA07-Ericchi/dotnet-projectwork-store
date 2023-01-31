@@ -9,6 +9,7 @@ namespace Projectwork_Store.Database
         public DbSet<Category> Categories { get; set; }
         public DbSet<Sticker> Stickers { get; set; }
         public DbSet<UserPurchase> UserPurchases { get; set; }
+        public DbSet<SupplierPurchase> SupplierPurchases { get; set; }
 
 
 
