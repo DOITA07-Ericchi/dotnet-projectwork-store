@@ -15,11 +15,12 @@
                 <table class="table">
                     <thead>
                         <tr>
-                            <th scope="col">ID</th>
-                            <th scope="col">Nome</th>
-                            <th scope="col">Categoria</th>
-                            <th scope="col">Sticker</th>
-                            <th scope="col">Quantità</th> 
+                <table class="table">
+                            <th scope="col" class="text-light">ID</th>
+                            <th scope="col" class="text-light">Nome</th>
+                            <th scope="col" class="text-light">Categoria</th>
+                            <th scope="col" class="text-light">Sticker</th>
+                            <th scope="col" class="text-light">Quantità</th>
                         </tr>
                     </thead>
                     
@@ -27,16 +28,23 @@
                         @foreach (Car car in Model)
                         {
                             <tr>
-                                <td>@car.Id</td>
-                                <td style="width: 20%">@car.Name</td>
-                                <td>@car.Category.Name</td>
-                                <td>@car.Sticker.Name</td>
+                                <td class="text-light">@car.Id</td>
+                                <td class="text-light" style="width: 20%">@car.Name</td>
+                                <td class="text-light">@car.Category.Name</td>
+                                <td class="text-light">@car.Sticker.Name</td>
 
                                 @if (@car.Quantity == 0)
                                 {
-                                    <td>@car.Quantity</td>
+                                    <td class="text-danger">@car.Quantity</td>
                                 }
-                                <td>@car.Quantity</td>
+                                else if (@car.Quantity < 6)
+                                {
+                                    <td class="text-warning-emphasis">@car.Quantity</td>
+                                }
+                                else
+                                {
+                                    <td class="text-light">@car.Quantity</td>
+                                }                               
                             </tr>
                         }
 
