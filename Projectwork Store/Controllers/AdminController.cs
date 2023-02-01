@@ -252,9 +252,13 @@ namespace Projectwork_Store.Controllers
 
             using (StoreContext db = new StoreContext())
             {
+                Car carSelected = db.Cars
+                    .Where(car => car.Id == id)
+                    .FirstOrDefault();
+                int newQuantity = carSelected.Quantity + newPurchase.SupplierPurchase.Quantity ;
 
                 db.SupplierPurchases.Add(newPurchase.SupplierPurchase);
-                
+                carSelected.Quantity = newQuantity;
 
                 db.SaveChanges();
 
