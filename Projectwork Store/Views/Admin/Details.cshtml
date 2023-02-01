@@ -38,6 +38,10 @@
             @Model.Sticker.Name
         }
     </p>
+    <form asp-controller="Admin" asp-action="AdminPurchase" asp-route-id ="@Model.Id" method="get" class="text-light p-3">
+        @Html.AntiForgeryToken()
+       <button type="submit" class="mt-4 btn btn-primary">Rifornisci</button>
+    </form>
 </div>
 <div class="row">
     <div class="col-12 col-md-10 col-lg-8">
