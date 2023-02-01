@@ -48,7 +48,7 @@ namespace Projectwork_Store.Models
 
         //rel 1-n SupplierPurchase
         [JsonIgnore]
-        public List<SupplierPurchase> SupplierPurchases { get; set; }
+        public List<SupplierPurchase>? SupplierPurchases { get; set; }
 
 
         public Car()
