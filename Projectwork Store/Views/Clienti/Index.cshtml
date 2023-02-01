@@ -64,28 +64,24 @@
                             `
                                             <div class="col-12 col-md-6 col-lg-4">
                                                 <div class="card text-light darkmask border border-2 border-red">
-                                                    <img src="${car.url_image}" class="card-img-top" alt="${car.name}">
+                                                    <img src="/img/itasha/${car.url_image}" class="card-img-top" alt="${car.name}">
                                                     <div class="card-title">
-                                                        <h3 class="my-3 text-center">${car.name}</h3>
-                                                        <hr>
-                                                        <span class="ms-4"> Sticker:${car.sticker.name}</span>
+                                                        <div class="mx-3 mt-3">
+                                                            <h3>${car.name}</h3>
+                                                            <span>${car.sticker.name}</span>
+                                                        </div>
                                                     </div>
-                                                    <div class="card-body text-center">
+                                                    <div class="card-body">
                                                         <p>
                                                             ${car.description}
                                                         </p>
-                                                    </div>
-                                                    <div class="card-footer bg-transparent">
-                                                        <h6>
-                                                            <span class="text-success"> Disponibile : ${car.quantity} </span>
-                                                        </h6>
-                                                        <h5>Prezzo: ${car.price} € </h5>
-                                                        <div>
-                                                            <p class="text-light">${car.n_like} mi piace</p>
-                                                        </div>
+                                                        <p>
+                                                            <span class="text-success"><strong>Disponibilità</strong>: ${car.quantity}</span>
+                                                        </p>
+                                                                <p><strong>Prezzo: </strong>${car.price}€ </h5>
                                                         <div style="text-align: center;">
                                                              <a class="btn" href="/Clienti/Details/${car.id}">Dettagli</a>
-                                                             <button class= "btn" type ='onclick'>Mi Piace</button>
+                                                                     <button class= "btn" type ='onclick'>${car.n_like} Mi piace</button>
                                                         </div>
                                                     </div>
                                                 </div>
