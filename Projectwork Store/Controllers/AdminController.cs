@@ -227,5 +227,40 @@ namespace Projectwork_Store.Controllers
                 return View("Storage", carsList);
             }
         }
+
+        [HttpGet]
+        public IActionResult AdminPurchase(int id)
+        {
+            using (StoreContext db = new StoreContext())
+            {
+               
+
+                SupplierPurchaseView viewModel = new SupplierPurchaseView();
+
+                viewModel.SupplierPurchase = new SupplierPurchase();
+                
+
+                return View("AdminPurchase", viewModel);
+            }
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult AdminPurchase(int id, SupplierPurchaseView newPurchase)
+        {
+            newPurchase.SupplierPurchase.CarId = id;
+
+            using (StoreContext db = new StoreContext())
+            {
+
+                db.SupplierPurchases.Add(newPurchase.SupplierPurchase);
+                
+
+                db.SaveChanges();
+
+            }
+
+            return RedirectToAction("Index");
+        }
     }
 }
