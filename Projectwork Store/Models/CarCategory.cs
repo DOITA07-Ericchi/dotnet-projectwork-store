@@ -11,11 +11,5 @@
         //lista stickers per la select
         public List<Sticker>? Stickers { get; set; }
 
-
-
-        public UserPurchase UserPurchase { get; set; }
-        public SupplierPurchase SupplierPurchase { get; set; }
-        public List<Car>? Cars { get; set; }
-
     }
 }
