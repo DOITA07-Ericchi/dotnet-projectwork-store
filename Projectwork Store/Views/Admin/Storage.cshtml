@@ -33,18 +33,18 @@
                                 <td class="text-light">@car.Category.Name</td>
                                 <td class="text-light">@car.Sticker.Name</td>
 
-                                @if (@car.Quantity == 0)
+                                @if (car.Quantity == 0)
                                 {
                                     <td class="text-danger">@car.Quantity</td>
                                 }
-                                else if (@car.Quantity < 6)
+                                else if (car.Quantity < 6)
                                 {
-                                    <td class="text-warning-emphasis">@car.Quantity</td>
+                                    <td class="text-warning">@car.Quantity</td>
                                 }
                                 else
                                 {
                                     <td class="text-light">@car.Quantity</td>
-                                }                               
+                                }
                             </tr>
                         }
 
