@@ -1,0 +1,104 @@
+﻿<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Itasha Store</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Projectwork_Store.styles.css" asp-append-version="true" />
+</head>
+<body class="wallpaper d-flex flex-column min-vh-100">
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-black box-shadow mb-0">
+            <div class="container-fluid">
+                <a class="navbar-brand pb-2" asp-area="" asp-controller="Home" asp-action="Index"><img src="~/img/logowide.webp" height="30" alt="Logo" /></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div id="carouselExampleIndicators" class="carousel slide border-bottom border-3 border-red bg-black">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="/img/carousel/1.png" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="..." class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="..." class="d-block w-100" alt="...">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+        <div class="text-end">
+            <img class="mb-3 mt-0 align-top" src="~/img/borderend.webp" />
+        </div>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+    <div style="margin-top: 200px;"></div>
+    <footer class="border-top border-2 border-white footer text-muted bg-black mt-auto">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-9">
+                    <p class="mt-2">Itasha Store è un negozio fittizio pensato dalla diabolica mente di <a href="https://ericchi.moe">Erika</a> e realizzato dai membri del gruppo 4 della classe DOITA07, che si sono sostenuti a vicenda in questa idea degenerata:</p>
+                    <ul>
+                        <li>
+                            Luciano Cecere (Backend, modelli)
+                        </li>
+                        <li>
+                            Gemma Marianelli (Backend, autenticazione)
+                        </li>
+                        <li>
+                            Giovanni Pagliara (Backend, modelli, database)
+                        </li>
+                        <li>
+                            Erika Rizzi (Project lead, frontend, gestione repository, UX e UI)
+                        </li>
+                        <li>
+                            Youssef Saleh (Frontend, backend, viste Admin e Clienti)
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div id="bottompic">
+            <img class="mascot" src="~/img/mascot.webp" alt="Mascotte" />
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
+
