@@ -223,8 +223,15 @@ namespace Projectwork_Store.Controllers
             using (StoreContext db = new StoreContext())
             {
                 List<Car> carsList = db.Cars.Include(car => car.Category).Include(car => car.Sticker).ToList<Car>();
+                List<SupplierPurchase> supplierList = db.SupplierPurchases.ToList<SupplierPurchase>();
 
-                return View("Storage", carsList);
+                StorageModelView newView = new StorageModelView();
+
+                newView.Suppliers= supplierList;
+                newView.Cars= carsList;
+
+
+                return View("Storage", newView);
             }
         }
 
