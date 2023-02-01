@@ -25,6 +25,7 @@ namespace Projectwork_Store.Models
 
         public SupplierPurchase()
         {
+            PurchaseData = DateTime.Now;
 
         }
 
