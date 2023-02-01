@@ -1,0 +1,29 @@
+﻿
+@model SupplierPurchaseView
+
+
+<div class="container darkmask border border-2 border-red">
+    <form asp-controller="Admin" asp-action="AdminPurchase" class="text-light p-3">
+        @Html.AntiForgeryToken()
+        <div class="row g-3 mt-1 align-items-center">
+            <div class="col">
+                <label>Nome:</label>
+                <input type="text" class="form-control bg-black text-light border border-2 border-red" asp-for="SupplierPurchase.Name" />
+                <span asp-validation-for="SupplierPurchase.Name" class="text-danger"></span>
+            </div>
+            <div class="col">
+                <label>Quantity:</label>
+                <input type="text" class="form-control bg-black text-light border border-2 border-red" asp-for="SupplierPurchase.Quantity" />
+                <span asp-validation-for="SupplierPurchase.Quantity" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="row g-3 mt-1 align-items-center">
+            <div class="col">
+                <label>Prezzo in €:</label>
+                <input type="number" min="5000" class="form-control bg-black text-light darkmask border border-2 border-red" asp-for="SupplierPurchase.Price" />
+                <span asp-validation-for="SupplierPurchase.Price" class="text-danger"></span>
+            </div>
+        </div>
+        <button type="submit" class="mt-4 btn btn-primary">Salva</button>
+    </form>
+</div>
