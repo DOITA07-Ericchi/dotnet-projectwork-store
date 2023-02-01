@@ -39,12 +39,12 @@ namespace Projectwork_Store.Models
         public Sticker? Sticker { get; set; }
 
 
-        public int N_like { get; set; }
+        public int? N_like { get; set; }
 
 
         //rel 1-n UserPurchase
         [JsonIgnore]
-        public List<UserPurchase> UserPurchases { get; set; }
+        public List<UserPurchase>? UserPurchases { get; set; }
 
         //rel 1-n SupplierPurchase
         [JsonIgnore]
