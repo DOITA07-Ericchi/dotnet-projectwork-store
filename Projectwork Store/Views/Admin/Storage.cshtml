@@ -1,7 +1,6 @@
 ﻿
 @{
-    List<int> listaID = new List<int> {};
-    int IdPiuGrande = 0;
+    
     
 }
 
@@ -31,6 +30,7 @@
                                 <th scope="col" class="text-light">Quantità</th>
                                 <th scope="col" class="text-light">Ultimo Rifornimento</th>
                                 <th scope="col" class="text-light">Ultimo Fornitore</th>
+                                <th scope="col" class="text-light">Quantità aggiunta</th>
                             </tr>
                         </thead>
                     
@@ -38,7 +38,8 @@
                             
                             @foreach (Car car in Model.Cars)
                             {
-
+                                List<int> listaID = new List<int> { };
+                                int IdPiuGrande = 0;
                                 <tr>
                                     <td class="text-light">@car.Id</td>
                                     <td class="text-light" style="width: 20%">@car.Name</td>
@@ -74,6 +75,7 @@
                                             
                                             <td class="text-light">@purchase.PurchaseData</td>
                                             <td class="text-light">@purchase.Name</td>
+                                            <td class="text-light">@purchase.Quantity</td>
                                         }
                                         
                                     }
