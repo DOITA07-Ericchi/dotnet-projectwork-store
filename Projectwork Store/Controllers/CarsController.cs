@@ -101,7 +101,7 @@ namespace Projectwork_Store.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return UnprocessableEntity(purchaseModel);
+                return UnprocessableEntity(ModelState);
             }
 
             purchaseModel.CarId = id;
@@ -124,14 +124,8 @@ namespace Projectwork_Store.Controllers
             }
            
         }*/
-        [HttpPost]
-        public IActionResult ClientPurchase()
-        {
-            
-                
-            return Ok();
-                
-            
-        }
+
+
+
     }
 }
