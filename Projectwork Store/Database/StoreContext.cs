@@ -1,9 +1,11 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using Projectwork_Store.Models;
 
 namespace Projectwork_Store.Database
 {
-    public class StoreContext : DbContext
+    public class StoreContext : IdentityDbContext<IdentityUser>
     {
         public DbSet<Car> Cars { get; set; }
         public DbSet<Category> Categories { get; set; }
