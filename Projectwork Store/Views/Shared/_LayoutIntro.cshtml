@@ -9,28 +9,15 @@
     <link rel="stylesheet" href="~/Projectwork_Store.styles.css" asp-append-version="true" />
 </head>
 <body class="wallpaper d-flex flex-column min-vh-100">
-    <header>
-        @{
-            Html.RenderPartial("_Navbar.cshtml");
-        }
-        <div class="text-end">
-            <img class="mb-3 mt-0 align-top" src="~/img/borderend.webp" />
-        </div>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
-    <div style="margin-top: 200px;"></div>
+    <main role="main" class="">
+    @RenderBody()
+</main>
     @{
         Html.RenderPartial("_Footer.cshtml");
     }
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js"></script>
-    @await RenderSectionAsync("Scripts", required: false)
+@await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
-
