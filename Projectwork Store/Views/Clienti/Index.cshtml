@@ -69,6 +69,8 @@
 
                         if(car.quantity == 0 ){
                             Disponibilita =  '<span class="text-danger"><strong>Esaurito</strong></span>'
+                        }else if (car.qauntity <= 5 ){
+                            Disponibilita =  '<span class="text-warning"><strong>Limitata</strong></span>'
                         }else{
                             Disponibilita =  '<span class="text-success"><strong>Disponibile</strong></span>'
                         }
