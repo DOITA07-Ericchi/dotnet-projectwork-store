@@ -65,35 +65,9 @@
         </main>
     </div>
     <div style="margin-top: 200px;"></div>
-    <footer class="border-top border-2 border-white footer text-muted bg-black mt-auto">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-9">
-                    <p class="mt-2">Itasha Store è un negozio fittizio pensato dalla diabolica mente di <a href="https://ericchi.moe">Erika</a> e realizzato dai membri del gruppo 4 della classe DOITA07, che si sono sostenuti a vicenda in questa idea degenerata:</p>
-                    <ul>
-                        <li>
-                            Luciano Cecere (Backend, modelli)
-                        </li>
-                        <li>
-                            Gemma Marianelli (Backend, autenticazione)
-                        </li>
-                        <li>
-                            Giovanni Pagliara (Backend, modelli, database)
-                        </li>
-                        <li>
-                            Erika Rizzi (Project lead, frontend, gestione repository, UX e UI)
-                        </li>
-                        <li>
-                            Youssef Saleh (Frontend, backend, viste Admin e Clienti)
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div id="bottompic">
-            <img class="mascot" src="~/img/mascot.webp" alt="Mascotte" />
-        </div>
-    </footer>
+    @{
+        Html.RenderPartial("_Footer.cshtml");
+    }
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
