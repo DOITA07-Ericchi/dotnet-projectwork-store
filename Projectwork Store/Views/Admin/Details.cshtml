@@ -2,15 +2,13 @@
 
 <div class="row g-3 mt-1 align-items-center text-light darkmask border border-2 border-red">
     <div class="text-center">
-    <h1 class="mt-3 mb-3">Id: @Model.Id</h1>
-    <img class="w-100"
-        src="@Model.Url_image"
-        alt="@Model.Name" />
+        <h1 class="mt-3 mb-3">Id: @Model.Id</h1>
+        <img class="w-100" src="@Model.Url_image" alt="@Model.Name" />
     </div>
-    <hr/>
+    <hr />
     <p>
         <strong>Nome:</strong>
-            @Model.Name
+        @Model.Name
     </p>
     <p>
         <strong>Descrizione: </strong>
@@ -38,9 +36,10 @@
             @Model.Sticker.Name
         }
     </p>
-    <form asp-controller="Admin" asp-action="AdminPurchase" asp-route-id ="@Model.Id" method="get" class="text-light p-3">
+    <form asp-controller="Admin" asp-action="AdminPurchase" asp-route-id="@Model.Id" method="get"
+        class="text-light p-3">
         @Html.AntiForgeryToken()
-       <button type="submit" class="mt-4 btn btn-primary">Rifornisci</button>
+        <button type="submit" class="mt-4 btn btn-primary">Rifornisci</button>
     </form>
 </div>
 <div class="row mt-5">
