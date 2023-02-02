@@ -1,10 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Projectwork_Store.Database;
 using Projectwork_Store.Models;
 
 namespace Projectwork_Store.Controllers
 {
+    [Authorize]
     public class AdminController : Controller
     {
         public IActionResult Index()
