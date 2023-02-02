@@ -10,25 +10,9 @@
 </head>
 <body class="wallpaper d-flex flex-column min-vh-100">
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-black box-shadow mb-0">
-            <div class="container-fluid">
-                <a class="navbar-brand pb-2" asp-area="" asp-controller="Home" asp-action="Index"><img src="~/img/logowide.webp" height="30" alt="Logo" /></a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+        @{
+            Html.RenderPartial("Navbar.cshtml");
+        }
         <div id="carouselExampleIndicators" class="carousel slide border-bottom border-3 border-red bg-black">
   <div class="carousel-indicators">
     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
