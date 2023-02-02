@@ -3,3 +3,35 @@
 *@
 @{
 }
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div id="purchase"></div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+
+    <script type="text/javascript">
+
+        function send(e){
+            e.preventDefault();
+        }
+
+         axios.post(`/api/Cars/ClientPurchase`,{
+
+             nome : "pippo",
+             cognome:"koag",
+             email: "ahjudhajhsd"
+         });
+
+    </script>
+}
+
+    
+            
+            
+

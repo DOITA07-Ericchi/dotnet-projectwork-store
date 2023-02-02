@@ -74,5 +74,64 @@ namespace Projectwork_Store.Controllers
 
         }
 
+        /*
+        [HttpGet("{id}")]
+        public IActionResult ClientPurchase(int id)
+        {
+            using (StoreContext db = new StoreContext())
+            {
+                Car cars = db.Cars.Where(car => car.Id == id).Include(car => car.Category).Include(car => car.Sticker).FirstOrDefault();
+                
+                if(cars == null)
+                {
+                    return NotFound("Non è possibile acquistare quest'auto");
+                }
+                else
+                {
+                    UserPurchase purchase = new UserPurchase();
+                    purchase.CarId = id;
+                    return Ok(purchase);
+                }
+            }
+        }
+
+        
+        [HttpPost("{id}")]
+        public IActionResult ClientPurchase(int id, [FromBody] UserPurchase purchaseModel)
+        {
+            if (!ModelState.IsValid)
+            {
+                return UnprocessableEntity(purchaseModel);
+            }
+
+            purchaseModel.CarId = id;
+
+            using (StoreContext db = new StoreContext())
+            {
+                Car carSelected = db.Cars
+                    .Where(car => car.Id == id)
+                    .FirstOrDefault();
+
+                int newQuantity = carSelected.Quantity - purchaseModel.Quantity;
+
+                db.UserPurchases.Add(purchaseModel);
+                carSelected.Quantity = newQuantity;
+
+                db.SaveChanges();
+
+                return Ok();
+
+            }
+           
+        }*/
+        [HttpPost]
+        public IActionResult ClientPurchase()
+        {
+            
+                
+            return Ok();
+                
+            
+        }
     }
 }
