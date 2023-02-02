@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.CodeAnalysis.VisualBasic;
 
 namespace Projectwork_Store.Controllers
 {
@@ -14,6 +15,10 @@ namespace Projectwork_Store.Controllers
 
             return View();
 
+        }
+        public IActionResult ClientPurchase()
+        {
+            return View();
         }
     }
 }
