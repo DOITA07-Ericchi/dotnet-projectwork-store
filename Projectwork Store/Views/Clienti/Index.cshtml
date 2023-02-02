@@ -65,6 +65,14 @@
 
                         console.log('car', car);
 
+                        let Disponibilita = '';
+
+                        if(car.quantity == 0 ){
+                            Disponibilita =  '<span class="text-danger"><strong>Esaurito</strong></span>'
+                        }else{
+                            Disponibilita =  '<span class="text-success"><strong>Disponibile</strong></span>'
+                        }
+
                         document.getElementById('contenitore_auto').innerHTML +=
                             `
                                             <div class="col-12 col-md-6 col-lg-4">
@@ -81,7 +89,7 @@
                                                             ${car.description}
                                                         </p>
                                                         <p>
-                                                            <span class="text-success"><strong>Disponibilità</strong>: ${car.quantity}</span>
+                                                           ${Disponibilita}
                                                         </p>
                                                         <div style="text-align: center;">
                                                              <a class="btn" href="/Clienti/Details/${car.id}">Dettagli</a>
