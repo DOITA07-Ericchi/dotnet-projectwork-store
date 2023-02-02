@@ -79,3 +79,7 @@ img.mascot {
 	padding-bottom: 0;
 	line-height: 0;
 }
+
+#youtube-icon {
+	max-height: 40px;
+}
