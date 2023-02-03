@@ -17,7 +17,6 @@
                     <table class="table">
                         <thead>
                             <tr>
-                    <table class="table">
                                 <th scope="col" class="text-light">ID</th>
                                 <th scope="col" class="text-light">Nome</th>
                                 <th scope="col" class="text-light">Categoria</th>
@@ -60,21 +59,27 @@
                                         }
                                         
                                     }
-                                    
-                                    @foreach (SupplierPurchase purchase in Model.Suppliers)
-                                    {
-                                        IdPiuGrande = listaID.Max();
-
-                                        if (IdPiuGrande == purchase.Id)
+                                    @if(listaID.Count()>0){
+                                        @foreach (SupplierPurchase purchase in Model.Suppliers)
                                         {
+                                            IdPiuGrande = listaID.Max();
+
+                                            if (IdPiuGrande == purchase.Id)
+                                            {
                                             
-                                            <td class="text-light">@purchase.PurchaseData</td>
-                                            <td class="text-light">@purchase.Name</td>
-                                            <td class="text-light">@purchase.Quantity</td>
+                                                <td class="text-light">@purchase.PurchaseData</td>
+                                                <td class="text-light">@purchase.Name</td>
+                                                <td class="text-light">@purchase.Quantity</td>
+                                            }
+
                                         }
-                                        
+                                    }else
+                                    {
+                                                <td class="text-light">Non è stato ancora fatto nessun rifornimento</td>
+                                                <td class="text-light"></td>
+                                                <td class="text-light"></td>
                                     }
-                                    
+
                                 </tr>
                             }
                             
