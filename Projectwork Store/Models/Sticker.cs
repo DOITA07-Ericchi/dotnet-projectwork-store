@@ -19,7 +19,7 @@ namespace Projectwork_Store.Models
 
         [Column(TypeName = "varchar(512)")]
         [StringLength(512, ErrorMessage = "Il link fornito non deve superare i 512 caratteri")]
-        [Url]
+        
         public string? Url_image { get; set; }
 
         //rel 1-n car
