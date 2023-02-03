@@ -1,0 +1,77 @@
+﻿
+@model StorageLogView
+
+
+
+<div class="container darkmask mt-3 border border-2 border-red">
+    <div class="row justify-content-center mt-5">
+        <div class="col-12 col-md-10 col-lg-12">
+            <h1 class="text-center text-light">@Model.Car.Name</h1>
+            <div class="row g-3 gy-5 justify-content-evenly">
+
+
+                
+                <h3 class="text-danger">Rifornimenti</h3>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col" class="text-light">Data Rifornimento</th>
+                            <th scope="col" class="text-light">Fornitori</th>
+                            <th scope="col" class="text-light">Quantità aggiunta</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach(SupplierPurchase purchase in Model.SupplierPurchases)
+                        {
+                            if(purchase.CarId == Model.Car.Id)
+                            {
+                                <tr>
+                                    <td scope ="col" class="text-light">@purchase.PurchaseData</td>
+                                    <td scope ="col" class="text-light">@purchase.Name</td>
+                                    <td scope="col" class="text-light">@purchase.Quantity</td>
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+                        
+                       
+                 <h3 class="text-success">Acquisti</h3>
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col" class="text-light">Data Acquisto</th>
+                            <th scope="col" class="text-light">Cliente</th>
+                            <th scope="col" class="text-light">Quantità acquistata</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (UserPurchase purchase in Model.UserPurchases)
+                        {
+                            if (purchase.CarId == Model.Car.Id)
+                            {
+                                <tr>
+                                    <td class="text-light">@purchase.PurchaseDate</td>
+                                    <td class="text-light">@purchase.Name @purchase.Surname</td>
+                                    <td class="text-light">@purchase.Quantity</td>
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                            
+                </table>
+
+
+                    <div class="row justify-content-center d-flex">
+                    <div class="col-10 col-md-8 text-center text-light my-5">
+                        <a class="btn" href="@Url.Action("Storage", "Admin")">Torna alla pagina Storage</a>
+                    </div>
+                </div>
+                       
+        
+
+            </div>
+        </div>
+    </div> 
+</div>

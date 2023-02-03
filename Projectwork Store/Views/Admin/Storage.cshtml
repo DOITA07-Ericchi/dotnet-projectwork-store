@@ -13,7 +13,7 @@
             <div class="col-12 col-md-10 col-lg-12">
                 <h1 class="text-center text-light">Magazzino</h1>
                 <div class="row g-3 gy-5 justify-content-evenly">
-
+                    
                     <table class="table">
                         <thead>
                             <tr>
@@ -21,73 +21,84 @@
                                 <th scope="col" class="text-light">Nome</th>
                                 <th scope="col" class="text-light">Categoria</th>
                                 <th scope="col" class="text-light">Personaggio</th>
-                                <th scope="col" class="text-light">Quantità</th>
                                 <th scope="col" class="text-light">Ultimo Rifornimento</th>
                                 <th scope="col" class="text-light">Ultimo Fornitore</th>
                                 <th scope="col" class="text-light">Quantità aggiunta</th>
+                                <th scope="col" class="text-light">Quantità attuale</th>
+                                <th scope="col" class="text-light">Cronologia</th>
                             </tr>
                         </thead>
-                    
-                        <tbody>
+                            <tbody>
                             
-                            @foreach (Car car in Model.Cars)
-                            {
-                                List<int> listaID = new List<int> { };
-                                int IdPiuGrande = 0;
-                                <tr>
-                                    <td class="text-light">@car.Id</td>
-                                    <td class="text-light" style="width: 20%">@car.Name</td>
-                                    <td class="text-light">@car.Category.Name</td>
-                                    <td class="text-light">@car.Sticker.Name</td>
-                                    @if (car.Quantity == 0)
-                                    {
-                                        <td class="text-danger">@car.Quantity</td>
-                                    }
-                                    else if (car.Quantity < 6)
-                                    {
-                                        <td class="text-warning">@car.Quantity</td>
-                                    }
-                                    else
-                                    {
-                                        <td class="text-light">@car.Quantity</td>
-                                    }
-                                    @foreach (SupplierPurchase purchase in Model.Suppliers)
-                                    {
-                                        @if(purchase.CarId == car.Id)
-                                        {
-                                            listaID.Add(purchase.Id);
-                                        }
-                                        
-                                    }
-                                    @if(listaID.Count()>0){
-                                        @foreach (SupplierPurchase purchase in Model.Suppliers)
-                                        {
-                                            IdPiuGrande = listaID.Max();
-
-                                            if (IdPiuGrande == purchase.Id)
+                                @foreach (Car car in Model.Cars)
+                                {
+                                    List<int> listaID = new List<int> { };
+                                    int IdPiuGrande = 0;
+                                
+                                        <tr>
+                                            <td class="text-light">@car.Id</td>
+                                    
+                                            <td class="text-light" style="width: 20%">@car.Name</td>
+                                    
+                                            <td class="text-light">@car.Category.Name</td>
+                                            <td class="text-light">@car.Sticker.Name</td>
+                                    
+                                            @foreach (SupplierPurchase purchase in Model.Suppliers)
                                             {
+                                                @if(purchase.CarId == car.Id)
+                                                {
+                                                    listaID.Add(purchase.Id);
+                                                }
+                                        
+                                            }
+                                            @if(listaID.Count() == 0){
+                                                <td class="text-light">---</td>
+                                                <td class="text-light">---</td>
+                                                <td class="text-light">---</td>
+                                            }else
+                                            {
+                                                @foreach (SupplierPurchase purchase in Model.Suppliers)
+                                                {
+                                                    IdPiuGrande = listaID.Max();
+
+                                                    if (IdPiuGrande == purchase.Id)
+                                                    {
                                             
-                                                <td class="text-light">@purchase.PurchaseData</td>
-                                                <td class="text-light">@purchase.Name</td>
-                                                <td class="text-light">@purchase.Quantity</td>
+                                                        <td class="text-light">@purchase.PurchaseData</td>
+                                                        <td class="text-light">@purchase.Name</td>
+                                                        <td class="text-light">@purchase.Quantity</td>
+                                                    }
+
+                                                }
                                             }
 
-                                        }
-                                    }else
-                                    {
-                                                <td class="text-light">Non è stato ancora fatto nessun rifornimento</td>
-                                                <td class="text-light"></td>
-                                                <td class="text-light"></td>
-                                    }
+                                            @if (car.Quantity == 0)
+                                            {
+                                                <td class="text-danger">@car.Quantity</td>
+                                            }
+                                            else if (car.Quantity < 6)
+                                            {
+                                                <td class="text-warning">@car.Quantity</td>
+                                            }
+                                            else
+                                            {
+                                                <td class="text-light">@car.Quantity</td>
+                                            }
 
-                                </tr>
-                            }
+                                            <td>
+                                                <a class="btn" href="@Url.Action("StorageLog", "Admin", new { id = car.Id } )" role="button">Dettagli</a>
+                                            </td>
+                                    
+
+                                        </tr>
+                                
+                                }
                             
                             
 
-                        </tbody>
+                            </tbody>
+                        
                     </table>
-               
                 </div>
             </div>
         </div>
