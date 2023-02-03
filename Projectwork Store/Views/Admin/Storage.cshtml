@@ -21,10 +21,10 @@
                                 <th scope="col" class="text-light">Nome</th>
                                 <th scope="col" class="text-light">Categoria</th>
                                 <th scope="col" class="text-light">Personaggio</th>
-                                <th scope="col" class="text-light">Quantità</th>
                                 <th scope="col" class="text-light">Ultimo Rifornimento</th>
                                 <th scope="col" class="text-light">Ultimo Fornitore</th>
                                 <th scope="col" class="text-light">Quantità aggiunta</th>
+                                <th scope="col" class="text-light">Quantità attuale</th>
                             </tr>
                         </thead>
                     
@@ -39,18 +39,7 @@
                                     <td class="text-light" style="width: 20%">@car.Name</td>
                                     <td class="text-light">@car.Category.Name</td>
                                     <td class="text-light">@car.Sticker.Name</td>
-                                    @if (car.Quantity == 0)
-                                    {
-                                        <td class="text-danger">@car.Quantity</td>
-                                    }
-                                    else if (car.Quantity < 6)
-                                    {
-                                        <td class="text-warning">@car.Quantity</td>
-                                    }
-                                    else
-                                    {
-                                        <td class="text-light">@car.Quantity</td>
-                                    }
+                                    
                                     @foreach (SupplierPurchase purchase in Model.Suppliers)
                                     {
                                         @if(purchase.CarId == car.Id)
@@ -59,7 +48,12 @@
                                         }
                                         
                                     }
-                                    @if(listaID.Count()>0){
+                                    @if(listaID.Count() == 0){
+                                        <td class="text-light">---</td>
+                                        <td class="text-light">---</td>
+                                        <td class="text-light">---</td>
+                                    }else
+                                    {
                                         @foreach (SupplierPurchase purchase in Model.Suppliers)
                                         {
                                             IdPiuGrande = listaID.Max();
@@ -73,11 +67,19 @@
                                             }
 
                                         }
-                                    }else
+                                    }
+
+                                    @if (car.Quantity == 0)
                                     {
-                                                <td class="text-light">Non è stato ancora fatto nessun rifornimento</td>
-                                                <td class="text-light"></td>
-                                                <td class="text-light"></td>
+                                        <td class="text-danger">@car.Quantity</td>
+                                    }
+                                    else if (car.Quantity < 6)
+                                    {
+                                        <td class="text-warning">@car.Quantity</td>
+                                    }
+                                    else
+                                    {
+                                        <td class="text-light">@car.Quantity</td>
                                     }
 
                                 </tr>
