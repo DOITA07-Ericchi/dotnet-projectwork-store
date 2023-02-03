@@ -7,23 +7,9 @@
         </button>
 
         <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-            <ul class="navbar-nav flex-grow-1">
-                <li class="nav-item">
-                    <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-
-                </li>
-                <li class="nav-item">
-                    <partial name="_LoginPartial" />
-                </li>
-                <li class="nav-item">
-                    <div data-video="fTFxE32onKs" data-autoplay="0" data-loop="1" id="youtube-audio" style="color: #f00; -webkit-filter: invert(100%); filter: invert(100%); max-height: 32px;"></div>
-                    <script src="https://www.youtube.com/iframe_api"></script>
-                    <script src="https://cdn.rawgit.com/labnol/files/master/yt.js"></script>
-                </li>
-            </ul>
+            @{
+                Html.RenderPartial("_NavbarElements.cshtml");
+            }
         </div>
     </div>
 </nav>
