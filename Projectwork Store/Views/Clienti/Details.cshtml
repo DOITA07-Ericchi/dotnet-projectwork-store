@@ -41,8 +41,8 @@
                         <img class="card-img" src="/img/logos/${car.sticker.url_image}" alt="${car.sticker.opera}" />
                         <p class="card-text text-light">${car.description}</p>
                         <p class="card-text text-light"><strong>Colore:</strong> ${car.color}</p>
-                        <h5 class="card-text text-light"><strong>Prezzo:</strong> ${car.price} €</p>
-
+                        <p class="card-text text-light"><strong>${car.n_like}</strong> Mi piace</p>
+                        <p class="card-text text-light"><strong>Prezzo:</strong> ${car.price} €</p>
                         <a class="text-black" href="/Clienti/ClientPurchase/${car.id}">
                             <button type="submit" class="mt-4 btn btn-primary">Acquista</button>
                         </a>
