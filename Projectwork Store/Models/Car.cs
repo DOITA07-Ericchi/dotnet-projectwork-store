@@ -53,7 +53,7 @@ namespace Projectwork_Store.Models
 
         public Car()
         {
-
+            N_like = 0;
         }
 
         public Car(string name, int categoryId, string description, string color, int price, string url_image)
@@ -64,6 +64,7 @@ namespace Projectwork_Store.Models
             Color = color;
             Price = price;
             Url_image = url_image;
+            N_like = 0;
         }
     }
 }

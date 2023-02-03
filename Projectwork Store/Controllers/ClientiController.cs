@@ -57,5 +57,30 @@ namespace Projectwork_Store.Controllers
 
             return RedirectToAction("Index");
         }
+
+        [HttpGet]
+        public IActionResult Like(int id)
+        {
+
+            using (StoreContext db = new StoreContext())
+            {
+                Car carSelected = db.Cars
+                    .Where(car => car.Id == id)
+                    .FirstOrDefault();
+
+                if (carSelected != null)
+                {
+                    carSelected.N_like += 1;
+
+                    db.SaveChanges();
+
+                    return View("Index");
+                }
+                else
+                {
+                    return NotFound("L'auto con questo id non è stata trovata");
+                }
+            }
+        }
     }
 }
