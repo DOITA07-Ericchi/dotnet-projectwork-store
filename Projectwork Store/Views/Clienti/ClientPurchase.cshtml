@@ -1,5 +1,5 @@
 ﻿
-@model UserPurchase
+@model CarClientPurchase
 
 <div class="container darkmask border border-2 border-red">
     <form asp-controller="Clienti" asp-action="ClientPurchase" class="text-light p-3">
@@ -7,23 +7,23 @@
         <div class="row g-3 mt-1 align-items-center">
             <div class="col">
                 <label>Nome:</label>
-                <input type="text" class="form-control bg-black text-light border border-2 border-red" asp-for="Name" required />
-                <span asp-validation-for="Name" class="text-danger"></span>
+                <input type="text" class="form-control bg-black text-light border border-2 border-red" asp-for="Purchase.Name" required />
+                <span asp-validation-for="Purchase.Name" class="text-danger"></span>
             </div>
             <div class="col">
                 <label>Cognome:</label>
-                <input type="text" class="form-control bg-black text-light border border-2 border-red" asp-for="Surname" required />
-                <span asp-validation-for="Surname" class="text-danger"></span>
+                <input type="text" class="form-control bg-black text-light border border-2 border-red" asp-for="Purchase.Surname" required />
+                <span asp-validation-for="Purchase.Surname" class="text-danger"></span>
             </div>
             <div class="col">
                 <label>Email:</label>
-                <input type="text" class="form-control bg-black text-light border border-2 border-red" asp-for="Email" required />
-                <span asp-validation-for="Email" class="text-danger"></span>
+                <input type="text" class="form-control bg-black text-light border border-2 border-red" asp-for="Purchase.Email" required />
+                <span asp-validation-for="Purchase.Email" class="text-danger"></span>
             </div>
             <div class="col">
                 <label>Quantità:</label>
-                <input type="number" min="1" class="form-control bg-black text-light border border-2 border-red" asp-for="Quantity" required />
-                <span asp-validation-for="Quantity" class="text-danger"></span>
+                <input type="number" min="1" max="@Model.Car.Quantity" class="form-control bg-black text-light border border-2 border-red" asp-for="Purchase.Quantity" required />
+                <span asp-validation-for="Purchase.Quantity" class="text-danger"></span>
             </div>
         </div>
         

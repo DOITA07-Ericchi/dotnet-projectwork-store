@@ -23,8 +23,13 @@ namespace Projectwork_Store.Controllers
         {
             using (StoreContext db = new StoreContext())
             {
+                Car carSelected = db.Cars
+                    .Where(car => car.Id == id)
+                    .FirstOrDefault();
+                CarClientPurchase viewModel = new CarClientPurchase();
 
-                UserPurchase viewModel = new UserPurchase();
+                viewModel.Purchase = new UserPurchase();
+                viewModel.Car = carSelected;
 
                 return View("ClientPurchase", viewModel);
             }
@@ -32,18 +37,18 @@ namespace Projectwork_Store.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult ClientPurchase(int id, UserPurchase newPurchase)
+        public IActionResult ClientPurchase(int id, CarClientPurchase newPurchase)
         {
-            newPurchase.CarId = id;
+            newPurchase.Purchase.CarId = id;
 
             using (StoreContext db = new StoreContext())
             {
                 Car carSelected = db.Cars
                     .Where(car => car.Id == id)
                     .FirstOrDefault();
-                int newQuantity = carSelected.Quantity - newPurchase.Quantity;
+                int newQuantity = carSelected.Quantity - newPurchase.Purchase.Quantity;
 
-                db.UserPurchases.Add(newPurchase);
+                db.UserPurchases.Add(newPurchase.Purchase);
                 carSelected.Quantity = newQuantity;
 
                 db.SaveChanges();

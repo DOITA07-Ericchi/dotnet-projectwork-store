@@ -67,10 +67,10 @@
 
                         let Disponibilita = '';
 
-                        if(car.quantity == 0 ){
-                            Disponibilita =  '<span class="text-danger"><strong>Esaurito</strong></span>'
+                        if(car.quantity <= 0 ){
+                            Disponibilita =  '<span class="text-danger"><strong>Esaurita</strong></span>'
                         }else if (car.quantity < 6 ){
-                            Disponibilita =  '<span class="text-warning"><strong>Limitata</strong></span>'
+                            Disponibilita =  '<span class="text-warning"><strong>Disponibilità limitata</strong></span>'
                         }else{
                             Disponibilita =  '<span class="text-success"><strong>Disponibile</strong></span>'
                         }
