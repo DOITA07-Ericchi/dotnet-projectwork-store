@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.CodeAnalysis.VisualBasic;
 using Projectwork_Store.Database;
 using Projectwork_Store.Models;
 
@@ -18,6 +17,22 @@ namespace Projectwork_Store.Controllers
             return View();
 
         }
+        public IActionResult PurchaseConfirmed(int id)
+        {
+            using (StoreContext db = new StoreContext())
+            {
+                UserPurchase userSelected = db.UserPurchases
+                    .Where(user => user.Id == id)
+                    .FirstOrDefault();
+                UserPurchase viewModel = userSelected;
+
+
+                return View(viewModel);
+
+            }
+        }
+
+
         [HttpGet]
         public IActionResult ClientPurchase(int id)
         {
@@ -55,7 +70,7 @@ namespace Projectwork_Store.Controllers
 
             }
 
-            return RedirectToAction("Index");
+            return RedirectToAction("PurchaseConfirmed");
         }
     }
 }
