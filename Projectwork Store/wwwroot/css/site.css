@@ -83,3 +83,7 @@ img.mascot {
 #youtube-icon {
 	max-height: 24px;
 }
+
+.carousel-item {
+	max-height: 500px;
+}
