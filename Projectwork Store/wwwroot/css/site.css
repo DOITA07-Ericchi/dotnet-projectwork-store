@@ -87,3 +87,12 @@ img.mascot {
 .carousel-item {
 	max-height: 500px;
 }
+
+.limitcarousel {
+	margin: auto;
+	max-width: 1200px;
+}
+
+.overridedisplay {
+	display: block !important;
+}
