@@ -1,11 +1,14 @@
 ﻿
 <div id="auto_container" class="card darkmask border border-2 border-red">
-
-</div>
-
     
 </div>
+
+
+
 <div class="container">
+    <div id="spinner-loader" class="d-flex justify-content-center">
+        <img class="spinner-border" style="width: 2rem; height: 2rem;" role="status" />
+    </div>
     <div class="col-12 col-md-10 col-lg-8 mb-3">
         <div class="row g-3 gy-5 justify-content-evenly">
             <div class="col-12 col-md-10 col-lg-12 me">
@@ -14,6 +17,7 @@
         </div>
     </div>
 </div>
+
 
 @section Scripts {
 
@@ -40,14 +44,20 @@
                         <img class="card-img" src="/img/logos/${car.sticker.url_image}" alt="${car.sticker.opera}" />
                         <p class="card-text text-light">${car.description}</p>
                         <p class="card-text text-light"><strong>Colore:</strong> ${car.color}</p>
-                        <h5 class="card-text text-light"><strong>Prezzo:</strong> ${car.price} €</p>
-                        <a href="#" class="btn">Acquista</a>
+                        <p class="card-text text-light"><strong>${car.n_like}</strong> Mi piace</p>
+                        <p class="card-text text-light"><strong>Prezzo:</strong> ${car.price} €</p>
+                        <a class="text-black" href="/Clienti/ClientPurchase/${car.id}">
+                            <button type="submit" class="mt-4 btn btn-primary">Acquista</button>
+                        </a>
+
                     </div>
                 </div>
             </div>
                                 `;
-
+            document.getElementById('spinner-loader').classList.add('d-none');
         });
+
+        
 
     </script>
 }

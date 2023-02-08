@@ -29,7 +29,7 @@ namespace Projectwork_Store.Models
 
         public UserPurchase()
         {
-
+            PurchaseDate = DateTime.Now;
         }
 
     }

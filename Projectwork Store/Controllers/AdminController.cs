@@ -275,5 +275,33 @@ namespace Projectwork_Store.Controllers
 
             return RedirectToAction("Index");
         }
+
+        //controller pagina dei dettagli in magazzino
+        public IActionResult StorageLog(int id)
+        {
+            using (StoreContext db = new StoreContext())
+            {
+                Car carSelected = db.Cars
+                     .Where(singolaCar => singolaCar.Id == id)
+                     .FirstOrDefault();
+
+                List<SupplierPurchase> supplierList = db.SupplierPurchases.ToList<SupplierPurchase>();
+                List<UserPurchase> userList = db.UserPurchases.ToList<UserPurchase>();
+
+                StorageLogView newView = new StorageLogView();
+
+                newView.Car = carSelected;
+                newView.UserPurchases = userList;
+                newView.SupplierPurchases = supplierList;
+
+                if (carSelected != null)
+                {
+                    return View(newView);
+                }
+                
+                    return NotFound("L'auto con questo id non è stata trovata");
+                
+            }
+        }
     }
 }

@@ -29,7 +29,7 @@ namespace Projectwork_Store.Models
 
         [Column(TypeName = "varchar(512)")]
         [StringLength(512, ErrorMessage = "Il link fornito non deve superare i 512 caratteri")]
-        [Url]
+        
         public string Url_image { get; set; }
 
         public int Quantity { get; set; }
@@ -53,7 +53,7 @@ namespace Projectwork_Store.Models
 
         public Car()
         {
-
+            N_like = 0;
         }
 
         public Car(string name, int categoryId, string description, string color, int price, string url_image)
@@ -64,6 +64,7 @@ namespace Projectwork_Store.Models
             Color = color;
             Price = price;
             Url_image = url_image;
+            N_like = 0;
         }
     }
 }
