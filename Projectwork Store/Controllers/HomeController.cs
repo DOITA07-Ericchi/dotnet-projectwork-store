@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Projectwork_Store.Database;
 using Projectwork_Store.Models;
 
@@ -20,9 +21,10 @@ public class HomeController : Controller
         {
 
             List<UserPurchase> ListPurchases = db.UserPurchases.ToList<UserPurchase>();
-            List<Car> piuvenduti = db.Cars
-              .ToList<Car>();
+            List<Car> piuvenduti = db.Cars.Include(car => car.Category).Include(car => car.Sticker).ToList<Car>();
+
             ViewClassifica newview = new ViewClassifica();
+
             newview.Cars = piuvenduti;
             newview.Purchases = ListPurchases;
 
