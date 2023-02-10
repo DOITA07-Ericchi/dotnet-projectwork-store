@@ -7,12 +7,12 @@
         @Html.AntiForgeryToken()
         <div class="row g-3 mt-1 align-items-center">
             <div class="col">
-                <label>Nome:</label>
+                <label>Nome fornitore:</label>
                 <input type="text" class="form-control bg-black text-light border border-2 border-red" asp-for="SupplierPurchase.Name" required />
                 <span asp-validation-for="SupplierPurchase.Name" class="text-danger"></span>
             </div>
             <div class="col">
-                <label>Quantity:</label>
+                <label>Quantità:</label>
                 <input type="number" min="1" class="form-control bg-black text-light border border-2 border-red" asp-for="SupplierPurchase.Quantity" required/>
                 <span asp-validation-for="SupplierPurchase.Quantity" class="text-danger"></span>
             </div>

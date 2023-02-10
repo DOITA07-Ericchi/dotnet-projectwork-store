@@ -8,6 +8,18 @@
 	}
 }
 
+@media (max-width: 991px) {
+	.mascot {
+		display: none;
+	}
+}
+
+@media (max-width: 575px) {
+	.mobilenomargin {
+		margin: 0 !important;
+	}
+}
+
 .btn {
 	border: 1px solid #ddd;
 	background-color: #e30000;
@@ -95,4 +107,9 @@ img.mascot {
 
 .overridedisplay {
 	display: block !important;
+}
+
+.nav-item {
+	margin-top: auto;
+	margin-bottom: auto;
 }

@@ -2,6 +2,13 @@
 @model CarClientPurchase
 
 <div class="container darkmask border border-2 border-red">
+    <div class="row">
+        <div class="col text-light m-3">
+            <h1>Modulo di prenotazione</h1>
+            <p>Stai per prenotare un'automobile da Itasha Store. Per favore, compila i campi di testo per procedere alla prenotazione della tua autovettura.</p>
+            <p>Successivamente alla prenotazione riceverai un'email con le informazioni su come effettuare il ritiro in concessionario.</p>
+        </div>
+    </div>
     <form asp-controller="Clienti" asp-action="ClientPurchase" class="text-light p-3">
         @Html.AntiForgeryToken()
         <div class="row g-3 mt-1 align-items-center">
@@ -27,7 +34,7 @@
             </div>
         </div>
         
-        <button type="submit" class="mt-4 btn btn-primary">Salva</button>
+        <button type="submit" class="mt-4 btn btn-primary">Conferma acquisto</button>
     </form>
 </div>
 

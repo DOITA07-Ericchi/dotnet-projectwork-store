@@ -1,5 +1,5 @@
 ﻿
-<div id="auto_container" class="card darkmask border border-2 border-red">
+<div id="auto_container" class="card darkmask border border-2 border-red mb-3">
     
 </div>
 
@@ -34,14 +34,14 @@
             document.getElementById('auto_container').innerHTML +=
                 `
                             <div class="row no-gutters">
-                <div class="col-sm-7">
-                    <img class="card-img" src="/img/itasha/${car.url_image}" alt="${car.name}">
+                <div class="col-sm-7 my-auto">
+                    <img class="card-img m-2 mobilenomargin" src="/img/itasha/${car.url_image}" alt="${car.name}">
                 </div>
                 <div class="col-sm-5">
                     <div class="card-body">
                         <h2 class="card-title text-light">${car.name}</h5>
                         <p class="card-text text-light">${car.sticker.name}</p>
-                        <img class="card-img" src="/img/logos/${car.sticker.url_image}" alt="${car.sticker.opera}" />
+                                        <img class="card-img mx-auto mb-2 object-fit-contain" style="max-height: 160px;" src="/img/logos/${car.sticker.url_image}" alt="${car.sticker.opera}" />
                         <p class="card-text text-light">${car.description}</p>
                         <p class="card-text text-light"><strong>Colore:</strong> ${car.color}</p>
                         <p class="card-text text-light"><strong>${car.n_like}</strong> Mi piace</p>
