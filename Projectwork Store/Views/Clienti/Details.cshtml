@@ -1,0 +1,63 @@
+﻿
+<div id="auto_container" class="card darkmask border border-2 border-red mb-3">
+    
+</div>
+
+
+
+<div class="container">
+    <div id="spinner-loader" class="d-flex justify-content-center">
+        <img class="spinner-border" style="width: 2rem; height: 2rem;" role="status" />
+    </div>
+    <div class="col-12 col-md-10 col-lg-8 mb-3">
+        <div class="row g-3 gy-5 justify-content-evenly">
+            <div class="col-12 col-md-10 col-lg-12 me">
+                <a class="btn" href="@Url.Action("Index", "Clienti")">Torna alle auto</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+
+    <script type="text/javascript">
+
+        const id = window.location.href.substring(window.location.href.lastIndexOf('/') + 1);
+
+        axios.get(`/api/cars/${id}`).then((res) => {
+
+            let car = res.data;
+            console.log('car ricevuta', car);
+            
+
+            document.getElementById('auto_container').innerHTML +=
+                `
+                            <div class="row no-gutters">
+                <div class="col-sm-7 my-auto">
+                    <img class="card-img m-2 mobilenomargin" src="/img/itasha/${car.url_image}" alt="${car.name}">
+                </div>
+                <div class="col-sm-5">
+                    <div class="card-body">
+                        <h2 class="card-title text-light">${car.name}</h5>
+                        <p class="card-text text-light">${car.sticker.name}</p>
+                                        <img class="card-img mx-auto mb-2 object-fit-contain" style="max-height: 160px;" src="/img/logos/${car.sticker.url_image}" alt="${car.sticker.opera}" />
+                        <p class="card-text text-light">${car.description}</p>
+                        <p class="card-text text-light"><strong>Colore:</strong> ${car.color}</p>
+                        <p class="card-text text-light"><strong>${car.n_like}</strong> Mi piace</p>
+                        <p class="card-text text-light"><strong>Prezzo:</strong> ${car.price} €</p>
+                        <a class="text-black" href="/Clienti/ClientPurchase/${car.id}">
+                            <button type="submit" class="mt-4 btn btn-primary">Acquista</button>
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+                                `;
+            document.getElementById('spinner-loader').classList.add('d-none');
+        });
+
+        
+
+    </script>
+}

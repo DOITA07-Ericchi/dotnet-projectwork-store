@@ -1,0 +1,122 @@
+﻿@{
+	ViewData["Title"] = "Itasha Store";
+	Layout = "~/Views/Shared/_LayoutClientiIndex.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <div class="d-flex">
+                <div>
+                    <input id="input_search" type="text" class="form-control bg-black text-light darkmask border border-2 border-red" placeholder="Cerca per titolo..." />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="spinner-loader" class="d-flex justify-content-center">
+        <img class="spinner-border" style="width: 2rem; height: 2rem;" role="status"/>
+    </div>
+    <div id="contenitore_no_auto" class="row text-center d-none">
+        <div class="col-12">
+            <h3>Auto non trovata !</h3>
+        </div>
+    </div>
+    <div class="row justify-content-center mt-5">
+        <div class="col-12 col-md-10 col-lg-12">
+            <div id="contenitore_auto" class="row g-3 gy-5 justify-content-evenly">
+                <!-- qui verranno mostrati gli elementi -->
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+
+    <script type="text/javascript">
+
+        loadAuto();
+
+        document.getElementById('input_search').addEventListener('keyup', searchCars);
+        function searchCars() {
+            let stringaDiRicerca = document.getElementById('input_search').value;
+
+            loadAuto(stringaDiRicerca);
+
+        }
+
+        function loadAuto(searchString) {
+
+            axios.get('/api/cars', {
+                params: {
+                    search: searchString
+                }
+            }).then((res) => {
+
+                console.log('risultato ok');
+                console.log(res);
+
+                if (res.data.length > 0) {
+                    document.getElementById('contenitore_auto').classList.remove('d-none')
+                    document.getElementById('contenitore_no_auto').classList.add('d-none');
+
+                    document.getElementById('contenitore_auto').innerHTML = '';
+
+                    res.data.forEach(car => {
+
+                        console.log('car', car);
+
+                        let Disponibilita = '';
+
+                        if(car.quantity <= 0 ){
+                            Disponibilita =  '<span class="text-danger"><strong>Esaurita</strong></span>'
+                        }else if (car.quantity < 6 ){
+                            Disponibilita =  '<span class="text-warning"><strong>Disponibilità limitata</strong></span>'
+                        }else{
+                            Disponibilita =  '<span class="text-success"><strong>Disponibile</strong></span>'
+                        }
+
+                        document.getElementById('contenitore_auto').innerHTML +=
+                            `
+                                            <div class="col-12 col-md-6 col-lg-4">
+                                                <div class="card text-light darkmask border border-2 border-red">
+                                                            <img src="/img/itasha/${car.url_image}" class="card-img-top" alt="${car.name}">
+                                                    <div class="card-title">
+                                                        <div class="mx-3 mt-3">
+                                                            <h3>${car.name}</h3>
+                                                            <span>${car.sticker.name}</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <p>
+                                                            ${car.description}
+                                                        </p>
+                                                        <p>
+                                                           ${Disponibilita}
+                                                        </p>
+                                                        <div style="text-align: center;">
+                                                             <a class="btn" href="/Clienti/Details/${car.id}">Dettagli</a>
+                                                             <a class= "btn" href="/Clienti/Like/${car.id}"> ${car.n_like} Mi piace</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                    `;
+                    });
+
+
+                } else {
+                    document.getElementById('contenitore_no_auto').classList.remove('d-none');
+                    document.getElementById('contenitore_auto').classList.add('d-none');
+
+
+                }
+                document.getElementById('spinner-loader').classList.add('d-none');
+            }).catch((error) => {
+                console.log(error);
+            });
+
+        }
+
+    </script>
+
+}

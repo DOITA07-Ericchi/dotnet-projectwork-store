@@ -1,5 +1,7 @@
 ﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Projectwork_Store.Database;
 using Projectwork_Store.Models;
 
 namespace Projectwork_Store.Controllers;
@@ -15,7 +17,19 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
-        return View();
+        using (StoreContext db = new StoreContext())
+        {
+
+            List<UserPurchase> ListPurchases = db.UserPurchases.ToList<UserPurchase>();
+            List<Car> piuvenduti = db.Cars.Include(car => car.Category).Include(car => car.Sticker).ToList<Car>();
+
+            ViewClassifica newview = new ViewClassifica();
+
+            newview.Cars = piuvenduti;
+            newview.Purchases = ListPurchases;
+
+            return View("Index", newview);
+        }
     }
 
     public IActionResult Privacy()

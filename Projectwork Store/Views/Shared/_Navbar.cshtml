@@ -1,0 +1,15 @@
+﻿            <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-black border-bottom border-3 border-red box-shadow mb-0">
+        <div class="container-fluid">
+            <a class="navbar-brand pb-2" asp-area="" asp-controller="Home" asp-action="Index"><img src="~/img/logowide.webp" height="30" alt="Logo" /></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+            @{
+                Html.RenderPartial("_NavbarElements.cshtml");
+            }
+            </div>
+        </div>
+    </nav>
