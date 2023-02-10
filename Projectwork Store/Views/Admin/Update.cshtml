@@ -34,14 +34,14 @@
     </div>
     <div class="row g-3 mt-1 align-items-center">
         <div class="col">
-            <label>Url Immagine:</label>
+            <label>Nome file immagine:</label>
             <input type="text" class="form-control bg-black text-light border border-2 border-red" asp-for="Car.Url_image" />
             <span asp-validation-for="Car.Url_image" class="text-danger"></span>
         </div>
     </div>
     <div class="row g-3 mt-1 align-items-center">
         <div class="col">
-            <label>Sticker:</label>
+            <label>Personaggio:</label>
             <select rows="5" class="form-select bg-black text-light border border-2 border-red w-100" asp-for="Car.StickerId">
                 <option value=""></option>
                 @foreach (Sticker sticker in Model.Stickers)
@@ -75,6 +75,6 @@
             <span asp-validation-for="Car.CategoryId" class="text-danger"></span>
         </div>
     </div>
-    <button type="submit" class="mt-4 btn btn-primary">Salva</button>
+    <button type="submit" class="mt-4 btn">Salva</button>
 </form>
 </div>
